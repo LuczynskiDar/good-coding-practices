@@ -1,0 +1,1888 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Good programming prctices.</title>
+
+    <!-- <link rel="stylesheet" href="css/reset.css"> -->
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css" id="theme">
+    <link rel="stylesheet" href="css/overrides.css" id="theme">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+</head>
+
+<body style="transition: -webkit-transform 0.8s ease 0s;">
+    <div class="reveal slide center has-vertical-slides has-horizontal-slides ready" role="application"
+        data-transition-speed="default" data-background-transition="fade" style="cursor: none;">
+        <div class="slides"
+            style="width: 960px; height: 700px; left: 50%; top: 50%; bottom: auto; right: auto; transform: translate(-50%, -50%) scale(0.578);">
+
+
+            <section data-background-color="#000000" 
+                data-background-size="15% auto" data-background-position="92% 100%"
+                class="has-dark-background past"
+                style="top: 165px; display: block;" >
+
+                <div class="wrapper">
+                    <div class="right">
+                        <h2 class="first-page-title">Good coding practices</h2>
+                    </div>
+                </div>
+                <div class="credits">
+                    <h4 class="prepared">Prepared by:</h4>
+                    <p class="name">Darek Łuczyński</p>
+                </div>
+
+                <aside class="notes">
+                     Prezentacja z dobrych praktyk programistycznych.<br>
+                </aside>
+
+            </section>
+
+            <section class="chapter-rev">
+                <h1>Introduction to Clean Code</h1>
+            </section>
+            <section>
+                <section>
+                    <h1 id="introduction">Introduction</h1>
+                    <!-- <h2 style="margin-top: 20px;">Auto-Animate</h2> -->
+                    <div class="r-hstack justify-center">
+                        <div class="r-vstack justify-center" data-id="box1">
+                            
+                            <div class="justify-center" data-id="box1"
+                                style="background: rgb(255, 255, 255); height: 100px; margin: 1px;">
+                                <blockquote>
+                                    <p><strong>Author:</strong> Based on the book by Robert C. Martin (Uncle Bob) </p>
+                                    <p><strong>Title:</strong> Clean Code - A handbook of Agile Software Craftmanship
+                                    </p>
+                                </blockquote>
+                            </div>
+
+                        </div>
+
+                        <div data-id="box2"
+                            style="background: rgb(255, 255, 255); width: 600px; height: 400px; margin: 1px;">
+                            <img src="markdowns/Images/01_Introduction/01.Book.PNG" alt="book" style="margin: 1px">
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        <p>Prezentacja będzie się opierać przede wszystkim na powyższj kiążce </p>
+                        <p>Czysty Kod - Podręcznik dobrego programisty
+                            Robert C. Martin</p>
+                    </aside>
+                </section>
+                <section>
+  
+
+                    <h3 id="definition-of-programming-and-code">Definition of programming and code</h3>
+                    <p>Specifying requirements in such detail that a machine can execute them is
+                        <strong><em>programming</em></strong>. Such a specification is <strong><em>code</em></strong>.
+                    </p>
+                    <p class="left-orient">Ref.: Clean Code, R.C. Martin
+                        
+                    </p>
+                    <aside class="notes">
+                        <h3 id="definicja-programowania-i-kodu">Definicja programowania i kodu</h3>
+                        <p>Niemniej najpierw przedstawię kilka definicji. A więc definicja kodu i programowania,</p>
+                        <p>Programowanie jest specyfikacją wymagań na takim poziomie szczegółowości, jaki maszyna może
+                            wykonać.
+                            Kod zatem jest tą specyfikacją.</p>
+                    </aside>
+                </section>
+                <section  id="dirty-character">
+                    <h3 id="dirty-code-characteristics">Dirty code characteristics</h3>
+                    <ul>
+                        <li>dirty code: </li>
+                    </ul>
+                    <blockquote>
+                        <p>(computing, derogatory) Software code that has had many editors with conflicting styles,
+                            making it nearly impossible to maintain. That software has dirty code and we should not use
+                            it.</p>
+                    </blockquote>
+                    <p>Ref.: <a href="https://www.yourdictionary.com/dirty-code"
+                            class="left-orient">https://www.yourdictionary.com/dirty-code</a>
+                    </p>
+                    <aside class="notes">
+                        <h3 id="czym-sie-charakteryzuje-brudny-kod">Czym sie charakteryzuje brudny kod</h3>
+                        <p>Wedlog slownika ‘yourdictionary’ brudny kod charakteryzuje sie, tym, ze to jest kod nad
+                            ktorym pracowalo
+                            wielu programistow o roznych stylach programoania. Co powoduje, ze kod nie nadaje sie do
+                            utrzymywania
+                            i dalszej pracy.</p>
+                        <p><a
+                                href="https://www.yourdictionary.com/dirty-code">https://www.yourdictionary.com/dirty-code</a>
+                            <a
+                                href="https://en.wiktionary.org/wiki/dirty_code#:~:text=Noun,we%20should%20not%20use%20it">https://en.wiktionary.org/wiki/dirty_code#:~:text=Noun,we%20should%20not%20use%20it</a>.
+                        </p>
+                    </aside>
+                </section>
+                <section  id="when-dirty">
+                    <h3 id="when-to-write-dirty-code">When to write dirty code</h3>
+                    <p class="left-orient">There are a few occasions where its okay to write dirty code:
+                        
+                    </p>
+                    <ol>
+                        <li>When you’re stuck</li>
+                        <li>When you want to write good code</li>
+                        <li>When you want to make things quickly</li>
+                    </ol>
+                    <p>Ref.: <a href="https://zellwk.com/blog/its-okay-to-write-dirty-code/"
+                            class="left-orient">https://zellwk.com/blog/its-okay-to-write-dirty-code/</a>
+                    </p>
+                    <aside class="notes">
+                        <p>Czysty kod pochodzi z brudnego kodu, na takiej zasadzie jak sie przepisuje czystopis z
+                            brudnopisu,
+                            albo tworzy sie obraz na podstaiw szkicu.</p>
+                        <p>Wedlug powyzszego bloga, sa trzy przypadki gdy mozna pisac brudny kod.</p>
+                        <ol>
+                            <li>Kiedy zaciales sie, nie wiesz jak isc dalej, i potrzebujesz prob aby rozwiazac problem,
+                            </li>
+                            <li>Kiedy chcesz napisac czysty kod,</li>
+                            <li>Kiedy musisz cos szybko napisac,</li>
+                        </ol>
+                        <p><a
+                                href="https://medium.com/@saad.eloulladi/write-clean-code-through-dirty-code-12a8b14b5e96">https://medium.com/@saad.eloulladi/write-clean-code-through-dirty-code-12a8b14b5e96</a>
+                            <a
+                                href="https://zellwk.com/blog/its-okay-to-write-dirty-code/">https://zellwk.com/blog/its-okay-to-write-dirty-code/</a>
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="when-to-write-dirty-code">When to write dirty code</h3>
+                    <blockquote>
+                        <p>[…]programming is a <strong>craft</strong> more than it is a <strong>science</strong>. To
+                            write <strong>clean code</strong>, you <strong>must</strong>
+                            first <strong>write dirty code</strong> and then clean it. […] Most freshman programmers
+                            don’t follow this advice.
+                            They believe that the primary goal is to get the program working. <strong>Once it’s
+                                “working,”</strong>
+                            <strong>they move on to the next task</strong>, leaving the “working” program in whatever
+                            state they finally got it to “work.”
+                            Most seasoned programmers know that <strong>this is professional suicide.</strong></p>
+                    </blockquote>
+                    <p>― <strong>Robert C. Martin</strong>, Clean Code: A Handbook of Agile Software Craftsmanship</p>
+                    <aside class="notes">
+                        <p>Aby pisać czysty kod, musimy na początku napisać brudny, a następnie go oczyścić. Zeby
+                            napisac dobry tekst, najpierw pisze się zgrubny szkic, następnie drugi, a potem kilka
+                            kolejnych, aż otrzymamy ostateczną wersję.</p>
+                        <p>Większość niedoświadczonych programistów nie stosuje się do tego zalecenia. Uważają oni, że
+                            ich podstawowym celem jest napisanie działającego programu. Gdy “już to działa”, to
+                            przechodzą do następnego zadania, pozostawiając ten “działający” program w dowolnym stanie.
+                            Większość doświadczonych programistów wie, że jest to zawodowe samobójstwo.</p>
+                    </aside>
+                </section>
+                <section  id="why-keep-clean" >
+                    
+
+                    <h3 id="why-keep-the-code-clean">Why keep the code clean</h3>
+                    <blockquote>
+                        <p>“<strong><em>Code is read much more often than it is written</em></strong>. Code should
+                            always be written in a way that promotes readability.”</p>
+                    </blockquote>
+                    <p>― <strong>Guido van Rossum</strong>, founder of Python, Python Enhancement Proposal (PEP 8)</p>
+                    <pre><code class="language-python hljs"># see ZEN of Python in python console
+import this</code></pre>
+                    <blockquote>
+                        <p>“Indeed, the ratio of time spent <strong><em>reading versus writing is well over 10 to
+                                    1</em></strong>. We are
+                            constantly reading old code as part of the effort to write new code. …[Therefore,] making it
+                            easy to read makes it easier to write.”</p>
+                    </blockquote>
+                    <p>― <strong>Robert C. Martin</strong>, Clean Code: A Handbook of Agile Software Craftsmanship</p>
+                    <aside class="notes">
+                        <p>Wedlug tworcy Pyhona kod jest czesciej czytany niz pisany, stad powinien byc pisany w taki
+                            sposob, ktory wspiera czytanie.</p>
+                        <p>Sprawdzcie ZEN of Python, PEP 8 odwołuje sie do tych 19 wersow.</p>
+                        <p>Wedlug wujka Boba, kod jest 10cio krotnie czesciej czytany niz pisany.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="why-keep-the-code-clean">Why keep the code clean</h3>
+                    <p><img src="markdowns/Images/01_Introduction/04.Pie_chart.PNG" alt="pie_chart"
+                            title="Coding Activity" width="70%" height="auto" class="stretch" style="float: right;">
+                        
+                    </p>
+                    <p>Ref.: <a
+                            href="https://dmitripavlutin.com/coding-like-shakespeare-practical-function-naming-conventions/">https://dmitripavlutin.com/coding-like-shakespeare-practical-function-naming-conventions/</a>
+                    </p>
+                    <aside class="notes">
+                        <p>Według powyższej infografiki czytani kodu stanowi 75% czasu poświęcinego na pracę z nim.</p>
+                        <p>Source of the picture
+                            <a
+                                href="https://dmitripavlutin.com/coding-like-shakespeare-practical-function-naming-conventions/">https://dmitripavlutin.com/coding-like-shakespeare-practical-function-naming-conventions/</a>
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="why-keep-the-code-clean">Why keep the code clean</h3>
+                    <p class="left-orient">The Cost of Owning a Mess is that:
+                        
+                    </p>
+                    <blockquote>
+                        <p><strong><em>any change is not trivial.</em></strong></p>
+                    </blockquote>
+                    <p class="left-orient">We’ve all said we’d go back and clean it up later. Those days we didn’t know
+                        LeBlanc’s law:
+                        
+                    </p>
+                    <blockquote>
+                        <p><strong><em>Later equals never.</em></strong></p>
+                    </blockquote>
+                    <p>Ref.: <a
+                            href="https://www.quora.com/What-resources-could-I-read-about-Leblancs-law">https://www.quora.com/What-resources-could-I-read-about-Leblancs-law</a>
+                    </p>
+                    <aside class="notes">
+                        <h3 id="dlaczego-nalezy-utrzymywac-kod-czystym">Dlaczego nalezy utrzymywac kod czystym?</h3>
+                        <p>Podsumowując, pisząć brudny kod, trzeba mieć na uwadze, że:</p>
+                        <p>Zadna zmiana nie jest trywialna, czyli łatwa do wprowadzenia.</p>
+                        <p>Jesli mowimy, ze cos zrobimy pozniej, to najczesciej oznacza, ze nie zrobimy tego nigdy.</p>
+                    </aside>
+                </section>
+                <section id="clean-character">
+                    
+                    <h3 id="clean-code-characteristics">Clean code characteristics</h3>
+                    <div class="r-hstack justify-center">
+                        <div class="padded" style="width: 40%; text-align: left; justify-content: left;">
+                            <p style="text-align: left; justify-content: left">- elegant,</p>
+                            <p style="text-align: left; justify-content: left">- efficient,</p>
+                            <p style="text-align: left; justify-content: left">- complete error handling,</p>
+                            <p style="text-align: left; justify-content: left">- does one thing well,</p>
+                            <p style="text-align: left; justify-content: left">- simple and direct,</p>
+                            <p style="text-align: left; justify-content: left">- well-written prose,</p>
+
+                        </div>
+
+                        <div class="padded" style="width: 60%; text-align: left; justify-content: right;">
+                            <p style="text-align: left; justify-content: left">- written by someone who cares,</p>
+                            <p style="text-align: left; justify-content: left">- reduced duplications (copy &amp;
+                                paste),</p>
+                            <p style="text-align: left; justify-content: left">- high expressiveness (including
+                                meaningful names),</p>
+                            <p style="text-align: left; justify-content: left">- early building of simple abstractions,
+                                abstract method or class,</p>
+                            <p style="text-align: left; justify-content: left">- test driven development (unit tests
+                                related),</p>
+                        </div>
+                    </div>
+
+                    <aside class="notes">
+                        <h3 id="charakterystyka-czystego-kodu">Charakterystyka czystego kodu</h3>
+                        <ul>
+                            <li>elegancki,</li>
+                            <li>wydajny,</li>
+                            <li>posiadający pełną obsługę błędów,</li>
+                            <li>odpowiada za jedną rzecz i robi ją dobrze,</li>
+                            <li>prosty i bezpośredni,</li>
+                            <li>dobrze napisana proza,</li>
+                            <li>napisany przez kogos, komu zależy,</li>
+                            <li>zminimalizowana ilość duplikacji,</li>
+                            <li>duża wyrazistość,</li>
+                            <li>bazowanie na abstrakcjacj, interface, klasy abstrakcyjne i metody,</li>
+                            <li>tdd, pisanie testow jednostkowych,</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section id="code-quality">                   
+                    <h3 id="code-quality-measurement">Code quality measurement</h3>
+                    <p class="left-orient">It’s been measured by WTF quantity per minute:                    
+                    </p>
+                    <p><img src="markdowns/Images/01_Introduction/03.WTF.PNG" alt="code_qc" title="Code quality"
+                            width="50%" height="auto" class="stretch" style="float: right;"> 
+                    </p>
+                    <aside class="notes">
+                        <h3 id="pomiar-jakości-kodu">Pomiar jakości kodu</h3>
+                        <p>Zwyczajowo mierzy się ilością łotdefaków na minutę, dobiegających z pokoju, w którym jest
+                            review.</p>
+                    </aside>
+                </section>
+                <section  id="boy-scout">
+                    <h3 id="the-boy-scout-rule">The Boy Scout Rule</h3>
+                    <p class="left-orient">The Boy Scouts of America have a simple rule that we can apply to our
+                        profession:
+                        
+                    </p>
+                    <blockquote>
+                        <p>“<strong>Leave the campground cleaner than you found it.</strong>“</p>
+                    </blockquote>
+                    <p>The cleanup doesn’t have to be something big. Change one variable name for the better, break up
+                        one function that’s a little too large, eliminate one small bit of duplication.</p>
+                    <aside class="notes">
+                        <h3 id="zasada-skautów-amerykańskich--harcerzy">Zasada skautów amerykańskich / harcerzy</h3>
+                        <p>Skauci amerykańscy mają prostą zasadę, jaką można zastosować w naszym zawodzie.</p>
+                        <p><strong>Pozostaw obozowisko czyściejszym, niż go zastałes</strong>.</p>
+                        <p>Czyszczenie nie musi być duże. Wystarczy zmiana jednej nazwyzmiennej na lepszą, podział
+                            funkcji, czy eliminacja duplikacji.</p>
+                        <p>Nie wystarczy dobrze pisać kod. Kod musi być zachowany w czystości przez cały czas.</p>
+                    </aside>
+                </section>
+            </section>
+            <section class="chapter-rev">
+                <h1>Names</h1>
+                <aside class="notes">
+                    Nazewnictwo
+                </aside>
+            </section>
+            <section>
+                <section style="top: 350px; display: none;">
+                    <h3 id="naming-conventions">Naming Conventions</h3>
+
+                    <table style="font-size:2.8pc">
+                        <thead>
+                            <tr>
+                                <th align="left">Raw</th>
+                                <th align="center">camelCase</th>
+                                <th align="center">PascalCase</th>
+                                <th align="center">kebab-case</th>
+                                <th align="center">snake_case</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="left">fruits in basket</td>
+                                <td align="center">fruitsInBasket</td>
+                                <td align="center">FruitsInBasket</td>
+                                <td align="center">fruits-in-basket</td>
+                                <td align="center">fruits_in_basket</td>
+                            </tr>
+                            <tr>
+                                <td align="left">has error</td>
+                                <td align="center">hasError</td>
+                                <td align="center">HasError</td>
+                                <td align="center">has-error</td>
+                                <td align="center">has_error</td>
+                            </tr>
+                            <tr>
+                                <td align="left">is visible</td>
+                                <td align="center">isVisible</td>
+                                <td align="center">IsVisible</td>
+                                <td align="center">is-visible</td>
+                                <td align="center">is_visible</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <aside class="notes">
+                        <h3 id="konwencje-nazewnictwa">Konwencje nazewnictwa</h3>
+                        <p>Można wyróżnić cztery główne konwencje nazewnictwa.
+                            camelCase, PascalCase, kebab-case, snake-case.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n6-avoid-encodings">N6: Avoid Encodings</h3>
+                    <p>Names should not be encoded with type or scope information. Prefixes such as <strong
+                            class="left-orient">‘m_’, ‘c’, ‘s’ or ‘i’</strong> 
+                        are useless in today’s environments.
+                        
+                    </p>
+                    <ul>
+                        <li>Hungarian Notation (HN)</li>
+                    </ul>
+                    <p>Majority of languages f.ex. Java, C# including CAPL are strongly typed, and editing environments
+                        can detect a type error long before you can run a compile. So nowadays HN and other forms of
+                        type encoding are simply handicaps.</p>
+                    <p class="left-orient">Encodings are also a possibility that the encoding system will mislead the
+                        reader.
+                        
+                    </p>
+                    <pre><code class="language-java hljs">PhoneNumber phoneString;
+// name not changed when type changed!</code></pre>
+                    <aside class="notes">
+                        <h3 id="n6-unikanie-kodowania">N6. Unikanie kodowania</h3>
+                        <ul>
+                            <li>Unikanie kodowania - wspolczesnie zanieczyszcza kod</li>
+                        </ul>
+                        <p>Kodowanie w nazwach typu lub informacji o zakresie powoduje zwiększenie nakładu pracy przy
+                            odszyfrowaniu.</p>
+                        <p>Fortran wymuszał kodowanie przez użycie pierwszej litery nazwy na kod typu.
+                            W czesne wersje języka Basic pozwalały tylko na korzystanie z litery i jednej cyfry. </p>
+                        <p>Notacja węgierska (NW) pozwalała przejść na całkiem nowy poziom.
+                            NW była uważana za bardzo ważną w API Windows C, gdy wszystko było uchwytem całkowitym,
+                            długim wskaźnikiem lub wskaźnikiem void albo jedną z kilku odmian “string” (o różnych
+                            zastosowaniachi atrybutach).
+                            W tym czasie kompilator nie sprawdzał typów, więc programiści potrzebowali sposobu na ich
+                            zapamiętanie.</p>
+                        <p>W dniu dzisiejszym notacja węgierska jest tylko utrudniniem.</p>
+                        <p>W nowoczesnych językach mamy znacznie bogatszy system typów, a kompilator pamięta i wymusza
+                            typy. Co więcej,
+                            istnieje trend tworzenia mniejszych klas i krótszych funkcji, aby ludzie najczęściej
+                            widzieli punkt deklaracji
+                            każdej używanej zmiennej.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g25-replace-magic-numbers-with-named-constants">G25: Replace Magic Numbers with Named
+                        Constants</h3>
+                    <p>This is probably one of the oldest rules in software development. In general it is a bad
+                        idea to have raw numbers in your code. Shall be hidden behind well-named constants.</p>
+                    <p>Some constants are so easy to recognize that they don’t always need a named constant
+                        to hide behind so long as they are used in conjunction with very self-explanatory code. </p>
+                    <pre><code class="language-java hljs">double milesWalked = feetWalked/5280.0; //well known, easy to recognize... maybe for an american
+int dailyPay = hourlyRate * 8;
+double circumference = radius * Math.PI * 2;</code></pre>
+                    <aside class="notes">
+                        <h3 id="g25-zamiana-magicznych-liczb-na-stałe-nazwane">G25. Zamiana magicznych liczb na stałe
+                            nazwane</h3>
+                        <p>W przypadku mPADa, magiczne liczby najczęściej są używane jako “exit codes” z funkcji.
+                            Uważam, że to jest zła praktyka.</p>
+                        <p>Jest to prawdopodobnie jedna z najstarszych zasad programowania.Zwykle złym pomysłem jest
+                            korzystanie
+                            z surowych liczb w kodzie. Niektóre stałe są tak proste do rozpoznania, że nie zawsze
+                            wymagają stałej
+                            nazwanej, o ile są połączone z bardzo dobrze opisującym się kodem </p>
+                        <p>Są też przypadki, wktórychy stosować liczby.</p>
+                        <p>Czy faktycznie w powyższych przykładach potrzebujemy stałych FEET_PER_MILE,
+                            WORK_HOURS_PER_DAY
+                            oraz TWO? Istnieją jednak wyrażenia, w których stałe są po prostu lepsze niż surowe liczby.
+                            Można mieć wątpliwości co do stałej WORK_HOURS_PER_DAY, ponieważ prawo i konwencje mogą się
+                            zmieniać.
+                            Z drugiej strony, wyrażenie to czyta się tak dobrze z cyfrą, że byłbym ostrożny przed
+                            dodawaniem do niego 17 znaków. </p>
+                        <p>W przypadku FEET_PER_MILE liczba 5280 jest tak dobrze znana i unikatowa, że czytelnik
+                            rozpozna ją, nawet gdyby znajdowała się
+                            sama na stronie, bez żadnego kontekstu.</p>
+                        <p>Stałe, takie jak 3,141592653589793, są również bardzo dobrze znane i łatwo rozpoznawalne.
+                            Jednak
+                            szansa popełnienia błędu jest zbyt duża, aby pozostawić ją w surowej postaci. Za każdym
+                            razem,
+                            gdy ktoś zobaczy 3,1415927535890793, będzie wiedział, że jest to pi, i nie będzie jej
+                            sprawdzał (czy
+                            zauważyłeś błąd w jednej cyfrze?). Nie chcemy również, aby używane były wartości 3,14,
+                            3,14159,
+                            3,142 i tak dalej. Dlatego dobrze, że mamy już zdefiniowaną stałą Math. PI.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g25-replace-magic-numbers-with-named-constants">G25: Replace Magic Numbers with Named
+                        Constants</h3>
+                    <p>The term “Magic Number” does not apply only to numbers. It applies to any token
+                        that has a value that is not self-describing. </p>
+                    <pre><code class="language-java hljs">assertEquals(7777, Employee.find(“John Doe”).employeeNumber());</code></pre>
+                    <p>There are two magic numbers in this assertion. The first is obviously <strong>“7777”</strong>.
+                        The second magic number is <strong>“John Doe”</strong>.</p>
+                    <p>It also turns out that “John Doe” represents hourly paid, test employee in that test database.
+                        So this test should really read:</p>
+                    <pre><code class="language-java hljs">assertEquals(HOURLY_EMPLOYEE_ID, Employee.find(HOURLY_EMPLOYEE_NAME).employeeNumber());</code></pre>
+                    <aside class="notes">
+                        <h3 id="g25-zamiana-magicznych-liczb-na-stałe-nazwane">G25. Zamiana magicznych liczb na stałe
+                            nazwane</h3>
+                        <p>Termin „magiczna liczba” nie odnosi się wyłącznie do liczb. Odnosi się do dowolnej wartości,
+                            która
+                            nie jest rozpoznawalna na pierwszy rzut oka. Na przykład:</p>
+                        <p>W tej asercji mamy dwie magiczne liczby. Pierwszą jest 7777, ponieważ jej znaczenie nie jest
+                            oczywiste.
+                            Drugą magiczną liczbą jest “John Doe”, ponieważ i w tym przypadku intencje nie są jasne.
+                            Wygląda to tak, jakby “John Doe” był nazwą pracownika numer 7777 w testowej bazie danych.
+                            Każdy po podłączeniu do tej bazy będzie miał dostęp do danych kilku pracowników mających
+                            znane wartości i atrybuty.
+                            “John Doe” reprezentuje jedynego pracownika opłacanego godzinowo w tej testowej bazie
+                            danych.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n1-choose-descriptive-names">N1: Choose Descriptive Names</h3>
+                    <ul>
+                        <li>Class Names</li>
+                    </ul>
+                    <p><strong>Classes, structures and objects</strong> should have <strong>noun or noun phrase
+                            names</strong> like: Customer, WikiPage,
+                        Account, and AddressParser. A class name should not be a verb.</p>
+                    <ul>
+                        <li>Method Names</li>
+                    </ul>
+                    <p><strong>Methods</strong> should have <strong>verb or verb phrase names</strong> like:
+                        postPayment, deletePage, or save.
+                        <strong>Accessors, mutators, predicates</strong> should be prefixed with ‘<strong>get, set,
+                            is</strong>‘.</p>
+                    <p>Choosing good names for <strong>one argument function can go together with the
+                            arguments</strong>. Function and argument should form a very nice verb/noun pair. </p>
+                    <pre><code class="language-java hljs">//is very evocative. Whatever this “name” thing is, it is being “written.”
+write(name) 
+//even better name might be below, which tells us that the “name” thing is a “field.”
+writeField(name)</code></pre>
+                    <aside class="notes">
+                        <h3 id="n1-wybór-opisowych-nazw">N1: Wybór opisowych nazw</h3>
+                        <ul>
+                            <li>Nazwy Klas</li>
+                        </ul>
+                        <p>Klasy, struktury i obiekty powinny być rzeczownikami lub wyrażeniami rzeczownikowymi, takimi
+                            jak: Customer,
+                            WikiPage, Account czy też AddressParser. Należy unikać w nazwach klas słów takich jak:
+                            Manager,
+                            Processor, Data lub Info. Nazwy klas nie powinny być czasownikami.</p>
+                        <ul>
+                            <li>Nazwy metod</li>
+                        </ul>
+                        <p>Metody należy opatrywać nazwami będącymi czasownikami lub wyrażeniami czasownikowymi,
+                            takimi jak postPayment, de1etePage lub save. Akcesory, mutatory być poprzedzone
+                            przedrostkiem <strong>get, set lub is</strong>.</p>
+                        <p>Funkcja i argument mogą tworzyć użyteczną parę czasownik-rzeczownik, co poprawia czytelmpść
+                            kodu. </p>
+                        <p>Na przykład zapis write (name) jest oczywisty. Niezależnie od tego, czym jest name (nazwa),
+                            jest to poddawane operacji write (zapis). Jeszcze lepszą nazwą może być write Field (name),
+                            z której jednoznacznie wynika, że zapisywana jest nazwa pola.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n1-choose-descriptive-names">N1: Choose Descriptive Names</h3>
+                    <p>Names in software are 90% of what make software readable. You need to take the time to choose
+                        them wisely and keep them relevant.</p>
+                    <pre><code class="language-C hljs">public int x() {
+    int q = 0;
+    int z = 0;
+    for (int kk = 0; kk < 10; kk++) {
+        if (l[z] == 10)
+        {
+            q += 10 + (1[z + 1] + 1[z + 2]);
+            z += 1;
+        }
+        else if (l[z] + l[z + 1] == 10)
+        {
+            q += 10 + 1 [z + 2];
+            z += 2;
+        } else {
+            q += l[z] + l[z + 1];
+            z += 2;
+        }
+    }
+    return q
+}</code></pre>
+                    <aside class="notes">
+                        <h3 id="n1-wybór-opisowych-nazw">N1: Wybór opisowych nazw</h3>
+                        <p>W 90 procentach nazwy w kodzie decydują o jego czytelności. Pamiętaj, że znaczenie nazwy,
+                            dryfuje w czasie, nie wahaj się zmieniać nazwy, którą wybrałeś. </p>
+                        <p>Nie podejmuj szybko decyzji na temat danej nazwy. Nazwa powinna być stosowna oraz isotna.
+                            Bądź pewien, że nazwa jest wystarczjąco opisowa.</p>
+                        <p>Poniżej mamy ten sam kod zapisany we właściwy sposób. Magiczne liczby przestały być magiczne,
+                            a struktura algorytmu jest zachęcająco opisowa.</p>
+                        <pre><code class="language-java hljs">private boolean isStrikeiint frame) {
+return rolls[frame] == 10;
+}</code></pre>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n1-choose-descriptive-names">N1: Choose Descriptive Names</h3>
+                    <ul>
+                        <li>Use Intention-Revealing Names</li>
+                    </ul>
+                    <p>The name of a variable, function, or class, should tell you why it exists, what it does,
+                        and how it is used. So take care with your names. </p>
+                    <pre><code class="language-C hljs">public int score() {
+    int score = 0;
+    int frame = 0;
+    for (int frameNumber = 0; frameNumber < 10; frameNumber++) {
+        if (isStrike(frame)) {
+            score += 10 + nextTwoBallsForStrikeiframe);
+            frame += 1;
+        } else if (isSpareiframe)) {
+            score += 10 + nextBallForSpareiframe);
+            frame += 2;
+        } else {
+            score += twoBallsInFrame(frame);
+            frame += 2;
+        }
+    }    
+    return score;
+}</code></pre>
+                    <aside class="notes">
+                        <h3 id="n1-wybór-opisowych-nazw">N1: Wybór opisowych nazw</h3>
+                        <p>To jest ten sam kod co na poprzednim slajdzie.</p>
+                        <ul>
+                            <li>Używaj nazw przedstawiających intencje/zamiary</li>
+                        </ul>
+                        <p>Wybór odpowiedniej nazwy to dobra inwestycja - zajmuje trochę
+                            czasu, ale pozwala oszczędzić go znacznie więcej. Dlatego warto przyglądać się używanym
+                            nazwom i zmieniać je, gdy znajdziemy lepsze. Każdy, kto czyta Twój kod (włącznie z Tobą),
+                            skorzysta na tym.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n3-use-standard-nomenclature-where-possible">N3: Use Standard Nomenclature Where Possible
+                    </h3>
+                    <p>Names are easier to understand if they are based on existing convention or usage.
+                        In Java, for example, functions that convert objects to string representations are often named:
+                    </p>
+                    <pre><code class="language-java hljs">toString();</code></pre>
+                    <p>Teams will often invent their own standard system of names for a particular project.
+                        Your code should use the terms from this language extensively.</p>
+                    <p>More you can use names that are overloaded with special meanings that are relevant
+                        to your project, the easier it will be for readers to know what your code is talking about.</p>
+                    <aside class="notes">
+                        <h3 id="n3-korzystanie-ze-standardowej-nomenklatury-tamgdzie-jest-to-możliwe">N3. Korzystanie ze
+                            standardowej nomenklatury tam,gdzie jest to możliwe</h3>
+                        <p>Nazwy są łatwiejsze do zrozumienia, jeżeli bazują na istniejących konwencjach lub
+                            zastosowaniach.
+                            W języku Java funkcje konwertujące obiekty na postać znakową są często nazywane toString.
+                            Lepiej zachować zgodność z tego typu konwencjami, niż wymyślać własne.</p>
+                        <p>Zespoły często wymyślają własne standardy nazewnictwa dla określonych projektów.</p>
+                        <p>Mówiąc krótko, im więcej używamy nazw przeładowanych znaczeniami odnoszącymi
+                            się do naszego projektu, tym łatwiej będzie czytelnikowi zrozumieć, do czego służy dany kod.
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n4-unambiguous-names">N4: Unambiguous Names</h3>
+                    <p>Choose names that make the workings of a function or variable unambiguous.
+                        Names may seem long, however it’s explanatory value outweighs the length cost.</p>
+                    <ul>
+                        <li>
+                            <p class="left-orient">Avoid Disinformation
+                                
+                            </p>
+                            <ul>
+                                <li>Do not refer to specific phrases, unless you know it’s truly represents it.
+                                    <pre><code class="language-java hljs">// The word list means something specific to programmers.
+// account list is actually a dictionary, but by the name indicates on the list
+var accountList = new Dictionary&ltstring, int&gt();
+//  account list is truely a list
+var accountList = new List&ltint&gt();</code></pre>
+                                </li>
+                                <li class="left-orient">Beware of using names which vary in small ways.                                  
+                                    <pre><code class="language-java hljs">// It is not ewasy to distinguish both variables
+var yzControllerForEfficientHandlingOfStrings = new YZControllerForEfficientHandlingOfStrings();
+var xyzControllerForEfficientStorageOfStrings = new XYZControllerForEfficientStorageOfStrings();</code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <aside class="notes">
+                        <h3 id="n4-jednoznaczne-nazwy">N4. Jednoznaczne nazwy</h3>
+                        <p>Należy wybierać nazwy, które nie pozostawiają niejednoznaczności co do działania funkcji lub
+                            zmiennej. Nazwy mogą wydawać się długie, niemniej ich wartość objaśniająca przewyższa koszt
+                            ich długości. </p>
+                        <ul>
+                            <li>
+                                <p>Unikanie dezinformacji</p>
+                                <ul>
+                                    <li>Unikaj używania nazw, które mogą być nazwami własnymi. Może to prowadzić do
+                                        fałszywych wniosków.</li>
+                                    <li>Należy unikać nazw, które nieznacznie się od siebie różnią.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n4-unambiguous-names">N4: Unambiguous Names</h3>
+                    <p>Example of disinformative names would be the use of lower-case <strong>l</strong> or uppercase
+                        <strong>O</strong> as variable names,
+                        especially in combination. The problem is that they look almost entirely like the constants one
+                        and zero.</p>
+                    <pre><code>int a = l;
+if ( O == l )
+    a = O1;
+else
+    l = 01; </code></pre>
+                    <aside class="notes">
+                        <h3 id="n4-jednoznaczne-nazwy">N4. Jednoznaczne nazwy</h3>
+                        <p>Przykładem niezwykle dezinformujących działań jest użycie w nazwach małej litery L oraz
+                            wielkiej O,
+                            Problem oczywiście polega na tym, że litery te wyglądają niemal tak jak cyfry jeden i zero.
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n4-unambiguous-names">N4: Unambiguous Names</h3>
+                    <ul>
+                        <li class="left-orient">Use Pronounceable Names. This matters because programming is a social
+                            activity. Hungarian notation and prefixes make names unpronouceable.
+                            
+                        </li>
+                    </ul>
+                    <pre><code class="language-java hljs">// bad naming
+int XPstn = 1;
+// better naming
+int xPosition = 1; </code></pre>
+                    <ul>
+                        <li class="left-orient">Avoid Mental Mapping. This is a problem with single-letter variable
+                            names.
+                            
+                        </li>
+                    </ul>
+                    <pre><code class="language-go hljs">// good loop counter
+customers[i];
+customers[j];
+customers[k];
+// bad loop counter
+// Seems like number '1'
+customers[l];</code></pre>
+                    <aside class="notes">
+                        <h3 id="n4-jednoznaczne-nazwy">N4. Jednoznaczne nazwy</h3>
+                        <ul>
+                            <li>Tworzenie nazw, które można wymówić</li>
+                        </ul>
+                        <p>Znaczna część naszego mózgu jest stworzona do interpretacji słów. Słowa z definicji dają się
+                            wymówić.
+                            Jeżeli nie będziemy mogli ich wymówić, nie będzie można swobodnie dyskutować o kodzie.
+                            Ma to znaczenie, ponieważ programowanie jest aktywnością społeczną. Prefixy i notacja
+                            wegierska utrudniaja
+                            wymowienie nazwy.</p>
+                        <ul>
+                            <li>Unikanie odwzorowania mentalnego</li>
+                        </ul>
+                        <p>Czytający kod nie powinni mentalnie przekształcać naszych nazw na inne.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n4-unambiguous-name">N4: Unambiguous Name</h3>
+                    <ul>
+                        <li class="left-orient">Don’t Be Cute
+                            
+                        </li>
+                    </ul>
+                    <p class="left-orient">Choose clarity over entertainment value.
+                        
+                    </p>
+                    <pre><code class="language-java hljs">// bad naming
+void hollyHandGranade();
+// good naming
+void deleteAllItems();</code></pre>
+                    <ul>
+                        <li>Pick One Word per Concept
+                            Pick one word for one abstract concept and stick with it. For instance, it’s confusing
+                            to have <strong>fetch, retrieve, and get</strong> as equivalent methods of different
+                            classes.</li>
+                    </ul>
+                    <aside class="notes">
+                        <h3 id="n4-jednoznaczne-nazwy">N4. Jednoznaczne nazwy</h3>
+                        <ul>
+                            <li>Nie bądź dowcipny</li>
+                        </ul>
+                        <p>Jeżeli nazwy są dowcipnymi szaradami, mogą być zapamiętane wyłącznie przez osoby z
+                            identycznym
+                            co autor poczuciem humoru, i tylko dopóty, dopóki będą one pamiętać dany żart słowny.
+                            Czy wszyscy będą wiedzieli, do czego służy funkcja o nazwie HolyHandGrenade?
+                            Czytelność jest zawsze ważniejsza od wrażeń artystycznych</p>
+                        <ul>
+                            <li>Wybieraj jedno słowo na pojęcie</li>
+                        </ul>
+                        <p>Należy stosować zasadę jedno słowo na jedno abstrakcyjne pojęcie i trzymać się jej.
+                            Na przykład mylące jest stosowanie nazw fetch, retrieve i get do analogicznych
+                            metod w różnych klasach.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n4-unambiguous-name">N4: Unambiguous Name</h3>
+                    <p class="left-orient">If names must be different, then they should also mean something different.
+                        
+                    </p>
+                    <ul>
+                        <li>
+                            <p class="left-orient">Make Meaningful Distinctions
+                                
+                            </p>
+                            <ul>
+                                <li>Number-series naming <strong>(a1, a2, .. aN)</strong><br> It is the opposite of
+                                    intentional naming. Such names are noninformative.</li>
+                                <li>Noise words like <strong>Info, Data, the, a, an, variable</strong>
+                                    Noise words are redundant. The word variable should never appear in a variable name.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <aside class="notes">
+                        <h3 id="n4-jednoznaczne-nazwy">N4. Jednoznaczne nazwy</h3>
+                        <p>Jeżeli nazwy muszą być różne, to powinny one również znaczyć coś innego.</p>
+                        <ul>
+                            <li>Tworzenie wyraźnych różnic<ul>
+                                    <li>Nazwy korzystające z numerów kolejnych (al, a2, … aN) są przeciwieństwem nazw
+                                        znaczących. Nazwy te nie są dezinformujące. Nie niosą ze sobą żadnej informacji
+                                        o intencjach autora.</li>
+                                    <li>Szum słowny. Słowa <strong>Info, Data, the,a, an, variable</strong>, są równie
+                                        mało znaczącymi nazwami. Nazwy powinny różnić się w taki sposób, aby czytelnik
+                                        wiedział, na czym polega różnica. Jeżeli utworzymy inną klasę, o nazwie
+                                        ProductInfo lub ProduetData, otrzymamy różne nazwy, ale nie spowodujemy, że będą
+                                        one znaczyły coś innego.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="n5-use-long-names">N5: Use Long Names</h3>
+                    <ul>
+                        <li>Use Long Names for Long Scopes</li>
+                    </ul>
+                    <p>The length of a name should be related to the length of the scope. You can use very short
+                        variable names for tiny scopes, but for big scopes you should use longer names.</p>
+                    <pre><code class="language-python hljs">def make_md_from_from_sfa_tokens(tokens) -> str:
+md = '' # short scope
+for token in tokens:
+    local_md = make_md_description_from_sfa_token(token)
+    md += local_md + '\r\n'
+return md</code></pre>
+                    <ul>
+                        <li>Use Searchable Names</li>
+                    </ul>
+                    <p>Single-letter names and numeric constants have a particular problem in that they are not
+                        easy to locate across a body of text.</p>
+                    <aside class="notes">
+                        <ul>
+                            <li>Użycie długich nazw dla długich zakresów</li>
+                        </ul>
+                        <p>Długość nazwy powinna być związana z długością zakresu. Można używać bardzo krótkich nazw
+                            dla niewielkich zakresów, ale dla dużych zakresów powinny być używane długie nazwy.</p>
+                        <ul>
+                            <li>Korzystanie z nazw łatwych do wyszukania</li>
+                        </ul>
+                        <p>Nazwy jednoliterowe i stałe numeryczne, są szczególnie niewygodne, ponieważ nie można ich
+                            łatwo
+                            wyszukać w tekście.</p>
+                        <p>Podobnie jest z nazwą <strong>‘e’</strong> . Jest złym wyborem, jeżeli jest używana do
+                            zmiennej, którą programista będzie
+                            chciał kiedykolwiek znaleźć. Jest to najczęściej występująca litera w języku angielskim i
+                            najprawdopodobniej
+                            zostanie wyszukana w każdym fragmencie tekstu. Pod tym względem dłuższe nazwy przewyższają
+                            krótsze.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="code-excercises">Code excercises</h3>
+                    <iframe width="600" height="140" class="ace stretch" style="height: 700px; width: 960px;">// Not clear namig
+class DtaRcrd102 {
+    private Date genymdhms;
+    private Date modymdhms;
+    private final String pszqint = "102";
+
+};
+// More clear intensions
+class Customer {
+    private Date generationTimestamp;
+    private Date modificationTimestamp;;
+    private final String recordId = “102”;
+};
+                        
+                    </iframe>
+
+                    <aside class="notes">
+                        <p>Przykład</p>
+                        
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="code-excercises">Code excercises</h3>
+                    <iframe width="600" height="140" class="ace stretch" style="height: 700px; width: 960px;">// Variables with unclear context.
+private void printGuessStatistics(char candidate, int count) {
+
+    String number;
+    String verb;
+    String pluralModifier;
+    if (count == 0) {
+    number = “no”;
+    verb = “are”;
+    pluralModifier = “s”;
+    } else if (count == 1) {
+    number = “1”;
+    verb = “is”;
+    pluralModifier = “”;
+    } else {
+    number = Integer.toString(count);
+    verb = “are”;
+    pluralModifier = “s”;
+    }
+    String guessMessage = String.format(
+    “There %s %s %s%s”, verb, number, candidate, pluralModifier
+    );
+    print(guessMessage);
+}
+// Variables have a context
+public class GuessStatisticsMessage {
+    private String number;
+    private String verb;
+    private String pluralModifier;
+    public String make(char candidate, int count) {
+    createPluralDependentMessageParts(count);
+    return String.format(
+        “There %s %s %s%s”,
+        verb, number, candidate, pluralModifier );
+    }
+    private void createPluralDependentMessageParts(int count) {
+    if (count == 0) {
+        thereAreNoLetters();
+    } else if (count == 1) {
+        thereIsOneLetter();
+    } else {
+        thereAreManyLetters(count);
+    }
+    }
+    private void thereAreManyLetters(int count) {
+    number = Integer.toString(count);
+    verb = “are”;
+    pluralModifier = “s”;
+    }
+    private void thereIsOneLetter() {
+    number = “1”;
+    verb = “is”;
+    pluralModifier = “”;
+    }
+    private void thereAreNoLetters() {
+    number = “no”;
+    verb = “are”;
+    pluralModifier = “s”;
+    }
+}
+                        
+                    </iframe>
+                    <aside class="notes"> </aside>
+                </section>
+            </section>
+            <section class="chapter-rev">
+                <h1>Functions</h1>
+                <aside class="notes">
+                    Funkcje
+                </aside>
+            </section>
+            <section>
+                <section>
+                    <h3 id="g30-functions-should-do-one-thing">G30: Functions Should Do One Thing</h3>
+                    <blockquote>
+                        <p><strong>Single responsibility rule</strong> </p>
+                        <ul>
+                            <li>FUNCTIONS SHOULD DO ONE THING</li>
+                            <li>THEY SHOULD DO IT WELL</li>
+                            <li>THEY SHOULD DO IT ONLY</li>
+                        </ul>
+                    </blockquote>
+                    <ul>
+                        <li>Sections within Functions</li>
+                    </ul>
+                    <pre><code class="language-java hljs">// Bad example, fuction pay() does 3 operations
+public void pay() {
+    for (Employee e : employees) { // review data of each emploee
+        if (e.isPayday()) { // checks if emploee is allowd to pay
+            Money pay = e.calculatePay(); // then finally calculates the paymen and pays
+            e.deliverPay(pay);
+        }
+    }
+}</code></pre>
+                    <aside class="notes">
+                        <h3 id="funkcje-powinny-robić-tylko-jedną-rzecz">Funkcje powinny robić tylko jedną rzecz</h3>
+                        <ul>
+                            <li>Sekcje wewnąrz funkcji</li>
+                        </ul>
+                        <p>Ten fragment kodu wykonuje trzy operacje. Przegląda dane pracowników, sprawdza, czy kolejnemu
+                            pracownikowi należy zapłacić, a następnie realizuje wypłatę.</p>
+                        <p>Funkcje które mają wiele sekcji wykonujących serię działań powinny zostać zamienione na
+                            mniejsze.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g30-functions-should-do-one-thing">G30: Functions Should Do One Thing</h3>
+                    <p class="left-orient">Functions that do one thing cannot be reasonably divided into sections.
+                        
+                    </p>
+                    <pre><code class="language-java hljs">// Better example
+public void pay() {
+    for (Employee e : employees){
+        paylfNecessary(e);
+    }
+}
+private void payIfNecessary(Employee e) {
+    if (e.isPaydayi)){
+        calculateAndDeliverPay(e);
+    }   
+}
+private void calculateAndDeliverPay(Employee e) {
+    Money pay = e .calculatePayi);
+    e.deliverPay(pay);
+}</code></pre>
+                    <h3 id="small-functions">Small Functions</h3>
+                    <p class="left-orient">Functions should not be 100 lines long. Functions should hardly ever be 20
+                        lines long.
+                        
+                    </p>
+                    <aside class="notes">
+                        <p>Funkcje, które robia tylko jedną rzecz nie mogą być podzielone na sekcje.</p>
+                        <p>Pierwsza zasada dotycząca konstruowania funkcji jest taka, że powinny być małe.</p>
+                        <p>Funkcje nie powinny mieć 100 wierszy długości. Funkcje powinny mieć nie więcej niż 20
+                            wierszy.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g20-function-names-should-say-what-they-do">G20: Function Names Should Say What They Do</h3>
+                    <p>Would you expect this to add five days to the date? Or is it weeks, or hours?
+                        You can’t tell from the call what the function does.</p>
+                    <pre><code class="language-java hljs">// bad example
+// Does it add 5 days, weeks or hours to the date?
+Date newDate = date.add(5);</code></pre>
+                    <p class="left-orient">If the function adds five days to the date and changes the date:
+                        
+                    </p>
+                    <pre><code class="language-java hljs">//better solution, if it incraeses by 5 days the better solution coold be
+date.increaseByDays(5);</code></pre>
+                    <aside class="notes">
+                        <p>Czy funkcja spowoduje dodanie pięciu dni do daty? Czy też tygodni lub godzin?
+                            Nie jesteśmy w stanie stwierdzić, co robi funkcja.</p>
+                        <p>Jeżeli musimy spojrzeć do implementacji (lub dokumentacji) funkcji w celu sprawdzenia, co ona
+                            robi, to powinniśmy zmienić jej nazwę na lepszą lub zmienić jej implementację.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g5-duplication">G5: Duplication</h3>
+                    <p>This is one of the most important rules in this book, it’s been called DRY principle (Don’t
+                        Repeat Yourself). </p>
+                    <blockquote>
+                        <p>OO itself is a strategy for organizing modules and eliminating
+                            duplication.<br><strong>Find</strong> and <strong>eliminate duplication</strong> wherever
+                            you can.</p>
+                    </blockquote>
+                    <p>More subtle duplications are the modules that have similar algorithms, but that don’t share
+                        similar lines of code.</p>
+                    <aside class="notes">
+                        <h3 id="g5-powtórzenia">G5. Powtórzenia</h3>
+                        <p>Jest to jedna z najważniejszych książki Czysty Kod. Nazwają
+                            ją też zasadą DRY (ang. Don’t Repeat Yourself), czyli „nie powtarzaj się”.</p>
+                        <p>Powtarzanie to jest problemem, ponieważ powoduje rozdęcie kodu, wymaga więcej modyfikacji,
+                            w przypadku zmian algorytmu oraz zwiększa możliwość popełnienia błędu.</p>
+                        <p>Samo programowanie obiektowe jest strategią organizacji modułów i eliminowania powtórzeń.
+                        </p>
+                        <p>Bardziej subtelnym rodzajem powtórzeń są moduły, które mają podobne algorytmy, ale nie mają
+                            podobnego kodu.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="f1-too-many-arguments">F1: Too Many Arguments</h3>
+                    <p><strong>No argument is best</strong>, followed by one, two, and three. More than three is very
+                        questionable and should be avoided. They take a lot of conceptual power. <strong>Arguments are
+                            even harder from a testing point of view</strong>, because demands to write many test cases
+                        to ensure that all the various combinations of arguments work properly. If there are no
+                        arguments, this is trivial.</p>
+                    <p>When a function seems to need more than two or three arguments, it is likely that some of those
+                        arguments ought to be <strong>wrapped into a class of their own</strong>.</p>
+                    <pre><code class="language-java hljs"> Circle makeCircle(double x, double y, double radius);
+Circle makeCircle(Point center, double radius);</code></pre>
+                    <p>Reducing the number of arguments by creating objects out of them may seem like cheating, but it’s
+                        not. When groups of variables are passed together, they are likely part of a concept.</p>
+                    <aside class="notes">
+                        <h3 id="f1-nadmiar-argumentów">F1. Nadmiar argumentów</h3>
+                        <p>Funkcje powinny mieć małą liczbę argumentów. Najlepszym przypadkiem jest… brak argumentów,
+                            następnie mogą być: jeden, dwa lub trzy argumenty. Większa liczba argumentów stanowi
+                            potencjalne
+                            źródło problemów. Argumenty są kłopotliwe. Wymagają one użycia sporej ilości
+                            energii koncepcyjnej. </p>
+                        <p>Argumenty są jeszcze bardziej kłopotliwe z punktu widzenia testowania. Trudno napisać
+                            wszystkie
+                            testy jednostkowe zapewniające, że wszystkie kombinacje argumentów będą działały prawidłowo.
+                            Jeżeli nie ma argumentów, jest to bardzo proste.</p>
+                        <p>Gdy wydaje się, że funkcja wymaga więcej niż dwóch lub trzech argumentów, najprawdopodobniej
+                            niektóre z nich powinny być umieszczone w osobnej klasie. </p>
+                        <p>Zmniejszenie liczby argumentów przez utworzenie z nich obiektów może wydawać się oszustwem,
+                            ale tak nie jest. Gdy grupy zmiennych są przesyłane wspólnie, tak jak x oraz y w powyższym
+                            przykładzie,
+                            najprawdopodobniej są częścią obiektu, który zasługuje na własną nazwę.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g10-vertical-separation">G10: Vertical Separation</h3>
+                    <ul>
+                        <li>
+                            <p><strong>Variables and function</strong> should be defined close to where they are used.
+                                Local variables
+                                should be declared just above their first usage and should have a small vertical scope.
+                            </p>
+                        </li>
+                        <li>
+                            <p><strong>Dependent functions</strong> should be defined just below their first usage. If
+                                one function calls another,
+                                they should be vertically close, and the caller should be above the callee. This gives
+                                the program a naturalflow. </p>
+                        </li>
+                    </ul>
+                    <aside class="notes">
+                        <h3 id="g10-separacja-pionowa">G10. Separacja pionowa</h3>
+                        <ul>
+                            <li>
+                                <p>Zmienne i funkcje powinny być definiowane blisko miejsca, gdzie są użyte. Zmienne
+                                    lokalne powinny
+                                    być deklarowane bezpośrednio ponad pierwszym użyciem i powinny mieć mały zakres
+                                    pionowy.
+                                    Nie chcemy zmiennych lokalnych deklarowanych setki wierszy od ich zastosowania.</p>
+                            </li>
+                            <li>
+                                <p>Funkcje zależne. Jeżeli jedna funkcja wywołuje inną, powinny być one położone blisko
+                                    siebie, a funkcja
+                                    wywołująca powinna być umieszczona powyżej wywoływanej, o ile jest to możliwe.
+                                    Pozwala to
+                                    osiągnąć naturalny przebieg programu. Jeżeli konwencja ta jest stosowana
+                                    konsekwentnie, czytelnik
+                                    będzie mógł zaufać nam, że definicja funkcji znajduje się zaraz po jej wywołaniu.
+                                </p>
+                            </li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g10-vertical-separation">G10: Vertical Separation</h3>
+                    <ul>
+                        <li>Reading Code from Top to Bottom: The Stepdown Rule</li>
+                    </ul>
+                    <p>The code should be read like a top-down, every function to be followed by those at the next
+                        level of abstraction so that we can read the program, descending one level of abstraction
+                        at a time as we read down the list of functions. I call this The Stepdown Rule.</p>
+                    <aside class="notes">
+                        <h3 id="czytanie-kodu-od-góry-do-dołu---zasada-zstępująca">Czytanie kodu od góry do dołu -
+                            zasada zstępująca</h3>
+                        <p>Chcemy, aby kod można było czytać od góry do dołu. Chcemy, aby po każdej funkcji znajdowała
+                            się kolejna, na następnym poziomie abstrakcji, dzięki czemu można czytać program, schodząc
+                            o jeden poziom abstrakcji niżej wraz z przejściem do kolejnej funkcji w pliku. Nazywam to
+                            zasadą
+                            zstępującą.</p>
+                        <p>Inaczej mówiąc, chcemy, aby można było czytać program tak, jakby był zbiorem akapitów,
+                            z których każdy opisuje bieżący poziom abstrakcji odwołujących się do kolejnych akapitówna
+                            następnym poziomie.</p>
+                        <p>Praktyka pokazuje, że programiści mają problemy z przyswojeniem sobie tej reguły i pisaniem
+                            funkcji działających na jednym poziomie abstrakcji. Programista, który chce być
+                            profesjonalistą,
+                            powinien jednak wypracować sobie nawyk tworzenia krótkich funkcji, które na pewno wykonują
+                            “jedną operację”.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="f4-dead-function--g9-dead-code">F4: Dead Function / G9: Dead Code</h3>
+                    <p><strong>Dead code is code that isn’t executed.</strong> The problem with dead code is that after
+                        awhile it starts to smell.
+                        This is because dead code is not completely updated when designs change. </p>
+                    <p>It still compiles, but it does not follow newer conventions or rules. It was written at a time
+                        when the system was different.
+                        When you find <strong>dead code, delete it from the system</strong>. Do not afraid, your source
+                        code control system still remembers it.</p>
+                    <aside class="notes">
+                        <h3 id="f4-martwe-funkcje--martwy-kod">F4. Martwe funkcje / Martwy kod</h3>
+                        <p>Martwy kod to taki, który nie jest wykonywany. Problem z martwym kodem jest taki, że szybko
+                            zaczyna
+                            wydzielać zapach. Im jest starszy, tym ten zapach staje się silniejszy i kwaśniejszy.
+                            Dzieje się tak, ponieważ martwy kod nie jest w pełni aktualizowany w czasie zmian projektu.
+                        </p>
+                        <p>Nadal kompiluje się, ale nie jest zgodny z najnowszymi konwencjami i zasadami.
+                            Był on pisany w czasie, gdy system był inny. </p>
+                        <p>Gdy znajdziemy martwy kod, możemy zrobić tylko jedną właściwą rzecz, usunąć go.
+                            Nie trzeba się obawiać usuwania funkcji — system kontroli wersji nadal ją pamięta.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g29-avoid-negative-conditionals">G29: Avoid Negative Conditionals</h3>
+                    <p>Negatives are harder to understand than positives. So, when possible, conditionals
+                        should be expressed as positives. </p>
+                    <pre><code class="language-java hljs">// Is worse, negative conditional
+if (!buffer.shouldNotCompact())
+// Is better, positive conditional
+if (buffer.shouldCompact())</code></pre>
+                    <aside class="notes">
+                        <h3 id="g29-unikanie-warunków-negatywnych">G29. Unikanie warunków negatywnych</h3>
+                        <p>Warunki negatywne są nieco trudniejsze do zrozumienia niż pozytywne. Dlatego, jeżeli jest to
+                            możliwe, wyrażenia powinny być formułowane jako warunki pozytywne.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="g35-keep-configurable-data-at-high-levels">G35: Keep Configurable Data at High Levels</h3>
+                    <p><strong>Constant</strong> such as a <strong>default or configuration value</strong> that is known
+                        and expected
+                        at a high level of abstraction, <strong>do not bury it in a low-level function</strong>.
+                        Expose it as an argument to that low-level function called from the high-level function. </p>
+                    <aside class="notes">
+                        <p>Jeżeli mamy stałe, takie jak wartości domyślne lub konfiguracyjne, które są oczekiwane na
+                            wysokim
+                            poziomie abstrakcji, to nie należy ukrywać ich w funkcjach niskiego poziomu. Należy ujawnić
+                            je
+                            jako argumenty, z użyciem których funkcje niskiego poziomu są wywoływane z funkcji wysokiego
+                            poziomu.</p>
+                        <p>Stałe konfiguracji znajdują się na bardzo wysokim poziomie i łatwo je zmienić. Są one
+                            przekazywane
+                            w dół, do pozostałych części aplikacji.</p>
+                    </aside>
+                </section>
+            </section>
+            <section class="chapter-rev">
+                <h1>Comments</h1>
+                <aside class="notes">
+                    <h1>Komentarze</h1>
+                    Nie są one "czystym dobrem". W rzeczywistości komentarze są w najlepszym przypadku koniecznym złem.
+                    Prawidłowe zastosowanie komentarzy jest kompensowaniem naszych błędów przy tworzeniu kodu
+                    (wysławianiu się w kodzie).
+                    Obecność komentarzy zawsze sygnalizuje nieporadność programisty. Musimy korzystać z nich, ponieważ
+                    nie zawsze wiemy,
+                    jak wyrazić nasze intencje bez ich użycia, ale ich obecność nie jest powodem do świętowania.
+
+                    Gdy uznamy, że konieczne jest napisanie komentarza, należy pomyśleć, czy nie istnieje sposób na
+                    wyrażenie tego samego w kodzie.
+                    Dlaczego jestem tak przeciwny komentarzom? Ponieważ one kłamią. Nie zawsze, nie rozmyślnie,
+                    ale nader często. Im starsze są komentarze, tym większe prawdopodobieństwo, że są po prostu
+                    błędne. Powód jest prosty. Programiści nie są w stanie utrzymywać ich aktualności.
+                    Złe komentarze<br>
+                    Do tej kategorii należy większość komentarzy. Zwykle są to podpory złego kodu lub wymówki albo
+                    uzasadnienie niewystarczających decyzji znaczące niewiele więcej niż dyskusja programisty ze sobą.
+                    <br>
+
+                </aside>
+            </section>
+
+            <section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <p>A comment is redundant if it describes something that adequately describes itself.
+                        Comments should say things that the code cannot say for itself.</p>
+                    <pre><code class="language-C hljs">i++;// increment i`</code></pre>
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <p>Komentarz jest nadmiarowy, jeżeli opisuje coś, co wystarczająco dobrze samo się opisuje.
+                            Komentarze powinny informować o tym, o czym nie może powiedzieć sam kod.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <ul>
+                        <li>Journal Comments</li>
+                    </ul>
+                    <p>Sometimes people add a comment to the start of a module every time they edit it. These comments
+                        accumulate as a kind of journal, or log, of every change that has ever been made. Nowadays, we
+                        have source code control systems, these long journals make harder to read the code.</p>
+                    <pre class="stretch" style="height: 700px; width: 960px;"><code class="language-java hljs">/*
+* Changes (from 11-Oct-2001)
+* --------------------------
+* 11-Oct-2001 : Re-organised the class and moved it to new package
+* com.jrefinery.date (DG);
+* 05-Nov-2001 : Added a getDescription() method, and eliminated NotableDate
+* class (DG);
+* 12-Nov-2001 : IBD requires setDescription() method, now that NotableDate
+* class is gone (DG); Changed getPreviousDayOfWeek(),
+* getFollowingDayOfWeek() and getNearestDayOfWeek() to correct
+* bugs (DG);
+* 05-Dec-2001 : Fixed bug in SpreadsheetDate class (DG);
+* 29-May-2002 : Moved the month constants into a separate interface
+* (MonthConstants) (DG);
+* 27-Aug-2002 : Fixed bug in addMonths() method, thanks to Nlevka Petr (DG);
+* 03-Oct-2002 : Fixed errors reported by Checkstyle (DG);
+* 13-Mar-2003 : Implemented Serializable (DG);
+* 29-May-2003 : Fixed bug in addMonths method (DG);
+* 04-Sep-2003 : Implemented Comparable. Updated the isInRange javadocs (DG);
+* 05-Jan-2005 : Fixed bug in addYears() method (1096282) (DG);
+*/</code></pre>
+                    
+
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <ul>
+                            <li>Komentarze dziennika</li>
+                        </ul>
+                        <p>Czasami programiści dodają na początku każdego pliku komentarz informujący o każdej edycji.
+                            Komentarze takie tworzą pewnego rodzaju dziennik wszystkich wprowadzonych zmian. </p>
+                        <p>Dawno temu istniały powody tworzenia i utrzymywania takich dzienników na początku każdego
+                            modułu. Nie mieliśmy po prostu systemów kontroli wersji, które wykonywały to za nas. Obecnie
+                            jednak takie długie dzienniki tylko pogarszają czytelność modułu. Powinny zostać usunięte
+                        </p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <ul>
+                        <li>Noise Comments</li>
+                    </ul>
+                    <p>Sometimes you see comments that are nothing but noise. They restate the obvious and provide no
+                        new information.</p>
+                    <pre class="stretch" style="height: 700px; width: 960px;"><code class="language-java hljs">/**
+* Default constructor.
+*/
+protected AnnualDateRule() {
+}
+
+/** The day of the month. */
+private int dayOfMonth;
+
+/**
+* Returns the day of the month.
+*
+* @return the day of the month.
+*/
+//Give me a break!
+public int getDayOfMonth() {
+return dayOfMonth;
+}
+</code></pre>
+                    
+
+                    <p class="left-orient">These comments are so noisy that we learn to ignore them, our eyes tend to
+                        skip them over.
+                        
+                    </p>
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <ul>
+                            <li>Komentarze wprowadzające szum informacyjny</li>
+                        </ul>
+                        <p>Czasami zdarza się nam spotkać komentarze, które nie są niczym więcej jak tylko szumem
+                            informacyjnym.</p>
+                        <p>Dzien miesiaca, getter dnia miesiaca, nie wnoszą nic nowego oprócz szumu, a zczasem nasze
+                            oczy bedą się uczyły je ignorować.</p>
+                        <p>Przedstawiają one oczywiste dane i nie dostarczają żadnych nowych informacji.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <ul>
+                        <li>Don’t Use a Comment When You Can Use a Function or a Variable</li>
+                    </ul>
+                    <p class="left-orient">Consider the following stretch of code:
+                        
+                    </p>
+                    <pre><code class="language-java hljs">// does the module from the global list /mod/ depend on the
+// subsystem we are part of
+if (smodule
+        .getDependSubsystems()
+        .contains(subSysMod.getSubSystem())
+    ){}</code></pre>
+                    <p class="left-orient">This could be rephrased without the comment as:
+                        
+                    </p>
+                    <pre><code class="language-java hljs">ArrayList moduleDependees = smodule.getDependSubsystems();
+String ourSubSystem = subSysMod.getSubSystem();
+if (moduleDependees
+        .contains(ourSubSystem)
+    ){}</code></pre>
+                    <p class="left-orient">Sometimes cleanerCode != smarterCode
+                        
+                    </p>
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <ul>
+                            <li>Nie używaj komentarzy, jeżeli można użyć funkcji lub zmiennej</li>
+                        </ul>
+                        <p>Autor prawdopodobnie napisał komentarz na początku (niestety), a następnie
+                            kod realizujący zadanie z komentarza. Jeżeli jednak autor zmodyfikowałby kod w sposób, w
+                            jaki ja
+                            to wykonałem, komentarz mógłby zostać usunięty.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <ul>
+                        <li>Position Markers</li>
+                    </ul>
+                    <p class="left-orient">Sometimes programmers like to mark a particular position in a source file.
+                        
+                    </p>
+                    <pre><code class="language-java hljs">// Actions //////////////////////////////////</code></pre>
+                    <p>Right after eliminating long tail of slashes, sometimes it makes sense to use such marker to
+                        gather certain functions together. But in general they are clutter that should be eliminated.
+                        Use them occasionally, and only when the benefit is significant. If too many, our eyes learn to
+                        ignore them.</p>
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <ul>
+                            <li>Znaczniki pozycji</li>
+                        </ul>
+                        <p>Czasami programiści lubią zaznaczać określone miejsca w pliku źródłowym.</p>
+                       
+                        <p>Zaraz po wyeliminowaniu tego ogona slashy, czsem ma sen stosowanie tego typu markerów
+                            jeżeli chcemy zgromadzić okreslone funkcje razem. Niemniej najeczęściej tego typu
+                            znaczniki tworzą bałagan, który powinien być wyelimonowany. Tak więc warto używać ich
+                            oszczędnie i tylko wtedy, gdy ich zalety są wyraźne. Jeżeli zbyt często używamy tych
+                            transparentów, zaczynają być traktowane jako szum tła i ignorowane.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <ul>
+                        <li>Closing Brace Comments</li>
+                    </ul>
+                    <p>Although this might make sense for long functions with deeply nested structures, it serves only
+                        to clutter the kind of small and encapsulated functions that we prefer. So if you find yourself
+                        wanting to mark your closing braces, try to shorten your functions instead.</p>
+                    <pre><code class="language-java hljs">while ((line = in.readLine()) != null) {
+    lineCount++;
+    charCount += line.length();
+    String words[] = line.split("\\W");
+    wordCount += words.length;
+} //while</code></pre>
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <ul>
+                            <li>Komentarze w klamrach zamykających</li>
+                        </ul>
+                        <p>Komentaże w klamrach zamykających mogą mieć sens w przypadku długich funkcji, z głęboko
+                            zagnieżdżonymi strukturami, w małych i hermetycznych funkcjach, jakie preferujemy, tworzą
+                            tylko nieład. Jeżeli więc chcesz mieć klamry zamykające, lepiej zamiast tego skrócić
+                            funkcję.
+                            Ja nie polecam stosowania takich kontarzy. Ostanim razem widzialem to na studiach i nigdzie
+                            indziej.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <ul>
+                        <li>Attributions and Bylines</li>
+                    </ul>
+                    <pre><code class="language-java hljs">/* Added by Rick */</code></pre>
+                    <p>Source code control systems are very good at remembering who added what, when. There is no need
+                        to pollute the code with little bylines. </p>
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <ul>
+                            <li>Atrybuty i dopiski</li>
+                        </ul>
+                        <p>Systemy kontroli wersji świetnie nadają się do zapamiętywania, kto (i kiedy) dodał określony
+                            fragment. Nie ma potrzeby zaśmiecania kodu tymi małymi dopiskami. Można uważać, że tego typu
+                            komentarze będą przydatne do sprawdzenia, z kim można porozmawiać na temat danego fragmentu
+                            kodu. Rzeczywistość jest inna - zwykle zostają tam przez lata, tracąc na dokładności i
+                            użyteczności.
+                            Pamiętajmy - systemy kontroli wersji są lepszym miejscem dla tego rodzaju informacji</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <ul>
+                        <li>Too Much Information</li>
+                    </ul>
+                    <p>The comment below was extracted from a module designed to test that a function could encode and
+                        decode base64 coding. </p>
+                    <p>It is good enough to have RFC number, someone reading this code has no need for the arcane
+                        information contained in the comment.</p>
+                    <pre width="50%" height="auto" class="stretch" style="height: 700px; width: 960px;"><code class="language-java hljs">/*
+RFC 2045 - Multipurpose Internet Mail Extensions (MIME)
+Part One: Format of Internet Message Bodies
+section 6.8. Base64 Content-Transfer-Encoding
+The encoding process represents 24-bit groups of input bits as output
+strings of 4 encoded characters. Proceeding from left to right, a
+24-bit input group is formed by concatenating 3 8-bit input groups.
+These 24 bits are then treated as 4 concatenated 6-bit groups, each
+of which is translated into a single digit in the base64 alphabet.
+When encoding a bit stream via the base64 encoding, the bit stream
+must be presumed to be ordered with the most-significant-bit first.
+That is, the first bit in the stream will be the high-order bit in
+the first 8-bit byte, and the eighth bit will be the low-order bit in
+the first 8-bit byte, and so on.
+*/</code></pre>
+                    
+
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <ul>
+                            <li>Nadmiar informacji</li>
+                        </ul>
+                        <p>Nie należy umieszczać w komentarzach interesujących z punktu widzenia historii dyskusji lub
+                            luźnych opisów szczegółów.
+                            Komentarz zamieszczony poniżej został pobrany z modułu mającego za
+                            zadanie sprawdzić, czy funkcja może kodować i dekodować zgodnie ze standardem base64.
+                            Osoba czytająca ten kod numer referencyjny do standardu RFC powinien być wystarczający, tam
+                            jest pełna informacja na temat standardu kodowania base64, stąd komentarz jest zbędny.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c3-redundant-comment">C3: Redundant Comment</h3>
+                    <ul>
+                        <li>Mandated Comments</li>
+                    </ul>
+                    <p>It is just plain silly to have a rule that says that every function must have a doc, or every
+                        variable must have a comment. Comments like this just clutter up the code, propagate lies.</p>
+                    <pre><code class="language-java hljs">/**
+*
+* @param title The title of the CD
+* @param author The author of the CD
+* @param tracks The number of tracks on the CD
+* @param durationInMinutes The duration of the CD in minutes
+*/
+public void addCD(String title, String author, int tracks, int durationInMinutes) {
+    CD cd = new CD();
+    cd.title = title;
+    cd.author = author;
+    cd.tracks = tracks;
+    cd.duration = duration;
+    cdList.add(cd);
+}</code></pre>
+                    <aside class="notes">
+                        <h3 id="c3-nadmiarowe-komentarze">C3. Nadmiarowe komentarze</h3>
+                        <ul>
+                            <li>Komentarze wymagane</li>
+                        </ul>
+                        <p>Wymaganie, aby każda funkcja posiadała Javadoc lub aby każda zmienna posiadała komentarz,
+                            jest po prostu głupie. Tego typu komentarze tylko zaciemniają kod i prowadzą do powszechnych
+                            pomyłek i dezorganizacji.</p>
+                        <p>Takie komentarze nie wnoszą niczego, za to utrudniają zrozumienie
+                            kodu.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c4-poorly-written-comment">C4: Poorly Written Comment</h3>
+                    <ul>
+                        <li>Inobvious Connection</li>
+                    </ul>
+                    <p>The connection between a comment and the code it describes should be obvious. If you are
+                        going to the trouble to write a comment, then at least you’d like the reader to be able to look
+                        at the comment and the code and understand what the comment is talking about. </p>
+                    <pre><code class="language-java hljs">/*
+* start with an array that is big enough to hold all the pixels
+* (plus filter bytes), and an extra 200 bytes for header info
+*/
+this.pngBytes = new byte[((this.width + 1) * this.height * 3) + 200];</code></pre>
+                    <p>What is filter, what is its the relation to ‘<strong>+ 1</strong>‘ or ‘<strong>* 3</strong>‘ or
+                        both of them? Is the pixel a ‘<strong>byte</strong>‘? Why header info takes ‘<strong>200
+                            bytes</strong>‘?</p>
+                    <aside class="notes">
+                        <h3 id="c4-poorly-written-comment">C4: Poorly Written Comment</h3>
+                        <ul>
+                            <li>Nieoczywiste połączenia</li>
+                        </ul>
+                        <p>Połączenie pomiędzy komentarzem a kodem, który on opisuje, powinno być oczywiste. Jeżeli mamy
+                            problemy z napisaniem komentarza, to powinniśmy przynajmniej doprowadzić do tego, by
+                            czytelnik
+                            patrzący na komentarz i kod rozumiał, o czym mówi dany komentarz.</p>
+                        <p>Zadaniem komentarza jest wyjaśnianie kodu, który sam się nie objaśnia. Szkoda, że sam
+                            komentarz wymaga dodatkowego objaśnienia.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="c5-commented-out-code">C5: Commented-Out Code</h3>
+                    <ul>
+                        <li>Commented-Out Code</li>
+                    </ul>
+                    <p class="left-orient">Don’t do this! Others who see that commented-out code won’t have the courage
+                        to delete it. They’ll think it is there for a reason and is too important to delete. That code
+                        sits there and rots, getting less and less relevant with every passing day. It calls functions
+                        that no longer exist. It uses variables whose names have changed.
+                        
+                    </p>
+                    <pre><code class="language-java hljs">InputStreamResponse response = new InputStreamResponse();
+response.setBody(formatter.getResultStream(), formatter.getByteCount());
+// InputStream resultsStream = formatter.getResultStream();
+// StreamReader reader = new StreamReader(resultsStream);
+// response.setContent(reader.read(formatter.getByteCount()));</code></pre>
+                    <p>Source code control systems will remember the code for us. We don’t have to comment it out any
+                        more. Just delete the code. </p>
+                    <aside class="notes">
+                        <p>Niewiele jest praktyk tak nieprofesjonalnych, jak zakomentowanie kodu. Nie rób tego!</p>
+                        <p>Inni programiści, którzy zobaczą taki zakomentowany kod, nie będą mieli odwagi go usunąć.
+                            Uznają, że jest tam z jakiegoś powodu i że jest zbyt ważny, aby go usunąć. W ten sposób
+                            zakomentowany kod zaczyna się odkładać jak osad na dnie butelki zepsutego wina.</p>
+                        <p>Jednak od bardzo długiego czasu mamy już dobre systemy kontroli wersji. Systemy te pamiętają
+                            za nas wcześniejszy kod. Nie musimy już komentować kodu. Po prostu możemy go usunąć</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="code-excercises">Code excercises</h3>
+                    <iframe width="600" height="140" class="ace stretch" style="height: 700px; width: 960px;">// Commented-out lines of code
+/* No longer used as has been replaced by DoSomethinElse().
+public void DoSomething()
+{
+    // ...implementation...
+}
+                        
+                    </iframe>
+                    <aside class="notes"></aside>
+                </section>
+            </section>
+            <section class="chapter-rev">
+                <h1>Foramtting</h1>
+                <aside class="notes">Formatowanie</aside>
+            </section>
+            <section>
+                <section>
+                    <h3 id="blocks-and-indenting">Blocks and Indenting</h3>
+                    <pre><code class="language-java hljs">public class FitNesseServer implements SocketServer { private FitNesseContext
+context; public FitNesseServerCFitNesseContext context) { this.context =
+context; } public void serveCSocket s) { serveCs, 10000); } public void
+serveCSocket s, long requestTimeout) { try { FitNesseExpediter sender = new
+FitNesseExpediterCs, context); sender.setRequestParsingTimeLimitCrequestTimeout); sender.startC); }
+catchCException e) { e.printStackTraceC); } } }</code></pre>
+                    <ul>
+                        <li class="left-orient">Code formatting is about communication
+                            
+                        </li>
+                    </ul>
+                    <p>A source file is a hierarchy rather like an outline. To make this hierarchy of scopes visible,
+                        we indent the lines of source code in proportion to their position in the hiearchy.
+                        This allows them to quickly hop over scopes. Without indentation, programs would be virtually
+                        unreadable by humans.
+                        However it is good enough css/js code for the minification!</p>
+                    <ul>
+                        <li><strong>The indent level of a function</strong> should <strong>not be greater than one or
+                                two</strong>, which makes the functions easier to read and understand.</li>
+                    </ul>
+                    <aside class="notes">
+                        <h3 id="bloki--i-wcięcia">Bloki i Wcięcia</h3>
+                        <p>Plik źródłowy stanowi pewnego rodzaju hierarchię, a nie szablon. Znajdują się w nim
+                            informacje
+                            odnoszące się do pliku jako całości, do poszczególnych klas w pliku, do metod w klasach, do
+                            bloków
+                            w metodach oraz, rekurencyjnie, do bloków w blokach. Każdy poziom hierarchii jest zakresem,
+                            w którym są zadeklarowane nazwy oraz w którym są interpretowane deklaracje i instrukcje
+                            wykonywalne.
+                            Aby hierarchia ta była widoczna, wcinamy wiersze kodu źródłowego odpowiednio do pozycji
+                            w hierarchii.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="vertical-formatting">Vertical Formatting</h3>
+                    <p>Comparing 7 different projects, files that are typically ~40 lines long, with an upper limit of
+                        ~500.
+                        Small files are usually easier to understand than large files are. Desirable is building an app
+                        having
+                        from 200 to 500 lines per file, however, this should not be a hard rule.</p>
+                    <p><img src="markdowns/Images/05_Formatting/05.Lines_per_file.png" alt="vertical_box_plot"
+                            title="File length distributions" width="70%" height="auto" class="stretch"> 
+                    </p>
+                    <p>Figure: File length distributions LOG scale (box height = sigma)</p>
+                    <aside class="notes">
+                        <p>EKS. I. Rozkład wielkości plików w skali logarytmicznej (wysokość prostokąta = sigma)</p>
+                        <p>Porównując ze sobą pliki siedmiu projektów - Junit, FitNesse, testNG, Time and Money,
+                            JDepend,
+                            Ant oraz Tomcat, okazuje się, żeśrednia znajduje się w pomiędzy ~40 a ~500 linii. </p>
+                        <p>Linie przechodzące przez prostokąty pokazują minimalną i maksymalną wielkość
+                            pliku w każdym projekcie. Prostokąt pokazuje średnio jedną trzecią (jedno standardowe
+                            odchyleniel)
+                            liczby plików. Środek prostokąta oznacza średnią.</p>
+                        <p>Wydaje się, że możliwe jest zbudowanie znaczącego systemu plików mających przeciętnie 200
+                            wierszy,
+                            a nieprzekraczających 500 wierszy. Choć nie musi to być sztywna reguła, to jednak powinna
+                            być bardzo
+                            pożądana. Małe pliki są zwykle łatwiejsze do zrozumienia niż duże.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="vertical-openness-between-concepts">Vertical Openness Between Concepts</h3>
+                    <p>Nearly all code is read left to right and top to bottom. Each line represents an expression or
+                        a clause, and each group of lines represents a complete thought. Those thoughts should be
+                        separated from each other with blank lines.</p>
+                    <pre><code class="language-python hljs">def is_str_instance(v):
+    return isinstance(v, str)
+
+
+def hex_str_to_int(input: str) -> int:
+    return int(input, 16)
+
+
+def int_to_hex(input: int) -> hex:
+    return hex(int)</code></pre>
+                    <aside class="notes">
+                        <h3 id="pionowe-odstępy-pomiędzy-segmentami-kodu">Pionowe odstępy pomiędzy segmentami kodu</h3>
+                        <p>Przykladem PEP 8 w python, nakazuje 2 linie odstepu miedzy definicjami funkcji,
+                            natomiast w ciele klasy metody, czy zmienne maja jedną linię odstępu. </p>
+                        <p>Niemal każdy kod czyta się od lewej do prawej i od góry do dołu. Każdy wiersz reprezentuje
+                            wyrażenie
+                            lub klauzulę, a każda grupa wierszy reprezentuje kompletną myśL Myśli te powinny być
+                            oddzielone
+                            od siebie pustymi wierszami.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="horizontal-formatting">Horizontal Formatting</h3>
+                    <p>Below figure suggests that we should strive to keep lines short. The old Hollerith limit was 80,
+                        currently lines edging out to 100 or even 120 are fine. Beyond that is probably just careless.
+                        But monitors are too wide for that nowadays, and programmers can shrink the font so small that
+                        they can get 200 characters across the screen. Don’t do that.</p>
+                    <p><img src="markdowns/Images/05_Formatting/06.Line_width_distribution.png" alt="line_width"
+                            title="Line width distribution" width="65%" height="auto" class="stretch"> 
+                    </p>
+                    <p>Figure. Java line width distribution</p>
+                    <aside class="notes">
+                        <p>Przedstawiony jest rozkład długości wierszy wszystkich siedmiu projektów. Wiersze krótsze niż
+                            10 znaków stanowią 30% całej populacji, natomiast wiersze o średniej długości od 20 do 60
+                            znaków stanowią 40% całej populacji, co daje już w sumie 70%. Linie z ilością znaków do 120
+                            zdecydowanie przekraczają 80% całej populacji (zasada pareto).
+                            Programiści preferują krótkie wiersze. A zatem powinniśmy tworzyć krótkie wiersze.
+                            Stare ograniczenie Holleritha do 80 znaków jest zbyt restrykcyjne i osobiście nie
+                            mam nic przeciwko wierszom mającym 100, a nawet 120 znaków. Jednak wartości powyżej tej
+                            granicy są zbyt duże.</p>
+                        <p>Obecnie monitory są bardzo szerokie, a młodsi programiści mogą tak zmniejszyć czcionkę, że
+                            uzyskują
+                            wiersze o długości 200 znaków. Nie jest to dobra praktyka. Ja staram się nie przekraczać
+                            długości
+                            120 znaków.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="horizontal-openness-and-density">Horizontal Openness and Density</h3>
+                    <p>We use horizontal white space to associate things that are strongly related and disassociate
+                        things that are more weakly related.</p>
+                    <pre><code class="language-java hljs">private void measureLine(String line) {
+    lineCount++;
+    int lineSize = line.length();
+    totalChars += lineSize;
+    lineWidthHistogram.addLine(lineSize, lineCount);
+    recordWidestLine(lineSize);
+}</code></pre>
+                    <ul>
+                        <li>Spaces between assignment operators</li>
+                        <li>No spaces between function name and opening parenthesis</li>
+                    </ul>
+                    <aside class="notes">
+                        <h3 id="poziome-odstępy-i-gęstość">Poziome odstępy i gęstość</h3>
+                        <p>Odstępy poziome służą do kojarzenia elementów ściśle powiązanych i rozłączania elementów,
+                            które
+                            są ze sobą luźniej związane. </p>
+                        <p>Operatory przypisania otoczyłem odstępami w celu ich wyróżnienia. Instrukcje przypisania mają
+                            dwa osobne główne elementy: lewą i prawą stronę. Odstępy powodują, że rozdzielenie to jest
+                            oczywiste.
+                            Z drugiej strony, nie dodaję odstępów pomiędzy nazwami funkcji a otwierającymi nawiasami.
+                            Funkcje i argumenty są ze sobą bardzo ściśle związane. Rozdzielenie ich spowodowałoby, że
+                            wyglądałyby
+                            na rozłączone, a nie złączone. Rozdzielam argumenty wywołania funkcji, aby zaznaczyć
+                            przecinek i pokazać, że argumenty są osobne.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="horizontal-alignment">Horizontal Alignment</h3>
+                    <p>Horizontal alignment was common for assembly language programmers. That this kind of alignment is
+                        not useful.
+                        The alignment seems to emphasize the wrong things and leads my eye away from the true intent.
+                        You are tempted
+                        to read down the list of variable names without looking at their types.</p>
+                    <pre class="stretch" style="height: 700px; width: 960px;"><code class="language-java hljs">public class FitNesseExpediter implements ResponseSender
+{
+    private   Socket          socket;
+    private   InputStream     input;
+    private   OutputStream    output;
+    private   Request         request;
+    private   Response        response;
+    private   FitNesseContext context;
+    protected long            requestParsingTimeLimit;
+    private   long            requestProgress;
+    private   long            requestParsingDeadline;
+    private   boolean         hasError;
+    public    FitNesseExpediter(Socket          s, 
+                                FitNesseContext context) throws Exception
+    {
+        this.context =            context;
+        socket =                  s;
+        input =                   s.getInputStream();
+        output =                  s.getOutputStream();
+        requestParsingTimeLimit = 10000;
+    }
+}</code></pre>
+                    
+
+                    <p class="left-orient">Automatic reformatting tools usually eliminate this kind of alignment.
+                        
+                    </p>
+                    <aside class="notes">
+                        <h3 id="rozmieszczenie-poziome">Rozmieszczenie poziome</h3>
+                        <p>Programując w asemblerze, stosowało się rozmieszczenie poziome w celu wyróżniania
+                            określonych struktur. </p>
+                        <p>Niemniej tego typu wyrównywanie nie jest użyteczne. Wyrównanie takie powoduje skupienie uwagi
+                            na niewłaściwych elementach i odciąga wzrok od właściwych. Na przykład w przedstawionej
+                            powyżej
+                            liście deklaracji mamy pokusę czytania listy zmiennych bez zwracania uwagi na ich typy.
+                            Podobnie w instrukcjach przypisania zwykle patrzymy na listę wartości, bez zwracania uwagi
+                            na operator przypisania. Co gorsza, automatyczne narzędzia formatujące zwykle eliminują
+                            tego rodzaju wyrównanie.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3 id="code-excercises">Code excercises</h3>
+                    <iframe width="600" height="140" class="ace stretch" style="height: 700px; width: 960px;">//Improper indentation
+
+public void DoSomething()
+{
+for (var i = 0; i < 1000; i++)
+{
+var productCode = $”PRC000{i}”;
+//…implementation
+}                
+                    </iframe>
+                    <aside class="notes"></aside>
+                </section>
+            </section>
+            <section class="chapter-rev">
+                <h1>Thank you for your attention.</h1>
+            </section>
+        </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+        // Shows the slide number using default formatting
+        // Reveal.configure({ slideNumber: 'c/t' });
+
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+
+            // Options which are passed into marked
+            // See https://marked.js.org/#/USING_ADVANCED.md#options
+            markdown: {
+                smartypants: true
+            },
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            // Turns fragments on and off globally
+            fragments: true,
+
+            // Transition style
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+            // Transition speed
+            transitionSpeed: 'default', // default/fast/slow
+
+            // Transition style for full page slide backgrounds
+            backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+            // theme: Reveal.getQueryHash().theme,
+            // transition: Reveal.getQueryHash().transition || 'default',
+
+            // Optional libraries used to extend on reveal.js
+
+            dependencies: [
+                // Interpret Markdown in <section> elements
+                { src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+
+                // Speaker notes
+                { src: 'plugin/notes/notes.js', async: true },
+
+                // Zoom in and out with Alt+click
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                // Syntax highlight for <code> elements
+                { src: 'plugin/highlight/highlight.js', async: true },
+                // Mouse pointer
+                { src: 'plugin/mouse-pointer/mouse-pointer.js', async: true },
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                { src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+                // Handwriting
+                // { src: 'plugin/handwriting/handwriting.js' },
+                // Ace Editor
+                { src: 'plugin/bower_components/ace/ace.js' },
+
+            ],
+            keyboard: {
+                // 67: function () { RevealHandWriting.colorCycle() },	// Change color with 'c'.
+                // 46: function () { RevealHandWriting.clear() },	    // Clear drawn things with 'DEL'.
+                // 68: function () { RevealHandWriting.download() },	// Downlad drawn things on a slide with 'd'.
+            },
+
+            ace: {
+                // Event is triggered when a new editor is created.
+                // oninit: function(editor) {
+
+                // },
+                // Event is triggered when the text of an editor has changed
+                onchange: function (event, editor) {
+
+                },
+
+                // Automatically focus an editor when it is displayed
+                autoFocus: false,
+
+                // defines a css class name for the ace editors
+                className: "ace"
+            },
+        });
+    </script>
+
+</body>
+
+</html>

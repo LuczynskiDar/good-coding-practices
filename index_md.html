@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Good programming prctices.</title>
+
+		<!-- <link rel="stylesheet" href="css/reset.css"> -->
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+		<link rel="stylesheet" href="css/overrides.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+				<section  data-background-color="#000000" data-background-size = "15% auto" data-background-position="92% 100%">
+
+					<div class="wrapper">
+						<!-- <div class="left">
+							<div class="circle"></div>
+						</div> -->
+						<div class="right">
+							<h2 class="first-page-title">Good coding practices</h2>
+						</div>
+					</div>
+					<div class = "credits">
+						<h4 class="prepared">Prepared by:</h4>
+						<p class="name">Darek Łuczyński</p>
+					</div>
+
+					<aside class="notes">
+						
+						Prezentacja z dobrych praktyk programistycznych.<br>
+					
+					</aside>
+				
+				</section>
+
+				<section  class="chapter-rev">
+					<h1>Introduction to Clean Code</h1> 
+				</section>
+				<section 
+				data-markdown="../markdowns/01_Introduction.md" 
+				data-separator="^\r?\n\_-_\r?\n" 
+				data-separator-vertical="^\r?\n---\r?\n"
+				data-separator-notes="^inj-note:"
+				> </section>
+				<section  class="chapter-rev">
+					<h1>Names</h1> 
+					<aside class="notes">
+						Nazewnictwo
+					</aside>
+				</section>
+				<section 
+				data-markdown="../markdowns/02_Names.md" 
+				data-separator="^\r?\n\_-_\r?\n" 
+				data-separator-vertical="^\r?\n---\r?\n"
+				data-separator-notes="^inj-note:"
+				> </section>
+				<section  class="chapter-rev">
+					<h1>Functions</h1> 
+					<aside class="notes">
+						Funkcje
+					</aside>
+				</section>
+				<section 
+				data-markdown="../markdowns/03_Functions.md" 
+				data-separator="^\r?\n\_-_\r?\n" 
+				data-separator-vertical="^\r?\n---\r?\n"
+				data-separator-notes="^inj-note:"
+				> </section>
+				<section  class="chapter-rev">
+					<h1>Comments</h1> 
+					<aside class="notes">
+						<h1>Komentarze</h1>
+						Nie są one "czystym dobrem". W rzeczywistości komentarze są w najlepszym przypadku koniecznym złem. 
+						Prawidłowe zastosowanie komentarzy jest kompensowaniem naszych błędów przy tworzeniu kodu (wysławianiu się w kodzie).
+						Obecność komentarzy zawsze sygnalizuje nieporadność programisty. Musimy korzystać z nich, ponieważ nie zawsze wiemy,
+						jak wyrazić nasze intencje bez ich użycia, ale ich obecność nie jest powodem do świętowania.
+
+						Gdy uznamy, że konieczne jest napisanie komentarza, należy pomyśleć, czy nie istnieje sposób na
+						wyrażenie tego samego w kodzie. 
+						Dlaczego jestem tak przeciwny komentarzom? Ponieważ one kłamią. Nie zawsze, nie rozmyślnie,
+						ale nader często. Im starsze są komentarze, tym większe prawdopodobieństwo, że są po prostu
+						błędne. Powód jest prosty. Programiści nie są w stanie utrzymywać ich aktualności.
+						Złe komentarze<br>
+						Do tej kategorii należy większość komentarzy. Zwykle są to podpory złego kodu lub wymówki albo 
+						uzasadnienie niewystarczających decyzji znaczące niewiele więcej niż dyskusja programisty ze sobą.
+						<br>	
+
+					</aside>
+				</section>
+				<section
+				data-visibility="hidden" 
+				data-markdown="../markdowns/04A_Comments_are_good.md" 
+				data-separator="^\r?\n\_-_\r?\n" 
+				data-separator-vertical="^\r?\n---\r?\n"
+				data-separator-notes="^inj-note:"
+				> </section>
+				<section 
+				data-markdown="../markdowns/04B_Comments_are_bad.md" 
+				data-separator="^\r?\n\_-_\r?\n" 
+				data-separator-vertical="^\r?\n---\r?\n"
+				data-separator-notes="^inj-note:"
+				> </section>
+				<section  class="chapter-rev">
+					<h1>Foramtting</h1>
+					<aside class="notes">Formatowanie</aside> 
+				</section>
+				<section 
+				data-markdown="../markdowns/05_Formatting.md" 
+				data-separator="^\r?\n\_-_\r?\n" 
+				data-separator-vertical="^\r?\n---\r?\n"
+				data-separator-notes="^inj-note:"
+				> </section>
+
+				<section
+				data-visibility="hidden" 
+				data-markdown="../markdowns/06_Environment.md" 
+				data-separator="^\r?\n\_-_\r?\n" 
+				data-separator-vertical="^\r?\n---\r?\n"
+				data-separator-notes="^inj-note:"
+				> </section>
+
+				<section  class="chapter-rev">
+					<h1>Thank you for your attention.</h1> 
+				</section>
+					
+
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Shows the slide number using default formatting
+			Reveal.configure({ slideNumber: 'c/t' });
+
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				
+				// Options which are passed into marked
+				// See https://marked.js.org/#/USING_ADVANCED.md#options
+				markdown: {
+					smartypants: true
+				},
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+			    // Turns fragments on and off globally
+				fragments: true,
+
+				// Transition style
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Transition speed
+				transitionSpeed: 'default', // default/fast/slow
+
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				// theme: Reveal.getQueryHash().theme,
+				// transition: Reveal.getQueryHash().transition || 'default',
+
+				// Optional libraries used to extend on reveal.js
+
+				dependencies: [
+					// Interpret Markdown in <section> elements
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+					// Speaker notes
+					{ src: 'plugin/notes/notes.js', async: true },
+
+					// Zoom in and out with Alt+click
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					// Syntax highlight for <code> elements
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					// Mouse pointer
+					{ src: 'plugin/mouse-pointer/mouse-pointer.js', async: true },
+					// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					// Handwriting
+					{ src: 'plugin/handwriting/handwriting.js' },
+					// Ace Editor
+					{ src: 'plugin/bower_components/ace/ace.js' },
+
+				],
+				keyboard: {
+					67: function () { RevealHandWriting.colorCycle() },	// Change color with 'c'.
+					46: function () { RevealHandWriting.clear() },	    // Clear drawn things with 'DEL'.
+					68: function () { RevealHandWriting.download() },	// Downlad drawn things on a slide with 'd'.
+				},
+
+				ace: {
+					// Event is triggered when a new editor is created.
+					// oninit: function(editor) {
+
+					// },
+					// Event is triggered when the text of an editor has changed
+					onchange: function(event, editor) {
+
+					},
+					
+					// Automatically focus an editor when it is displayed
+					autoFocus: false,
+
+					// defines a css class name for the ace editors
+					className: "ace"
+				},
+			});
+		</script>
+	</body>
+</html>

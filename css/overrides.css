@@ -1,0 +1,454 @@
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+   font-family: Arial, Helvetica, sans-serif;
+   margin: 0 0 10px 0;
+   color: black;
+
+   letter-spacing: 0.02em;
+   text-transform: none;
+   text-shadow: none;
+}
+
+.reveal h1 {
+   font-size: 4rem;
+   line-height: 5rem;
+}
+
+.reveal h2 {
+   font-size: 3rem;
+   line-height: 4rem;
+}
+
+.reveal h2.first-page-title {
+
+   text-transform: uppercase;
+   text-align: left;
+}
+
+.reveal h3 {
+   font-size: 2rem;
+   line-height: 3rem;
+}
+
+.reveal h4 {
+   font-size: 1.5rem;
+   line-height: 2.5rem;
+}
+
+.reveal p{
+
+   font-size: 1.5rem;
+   line-height: 2.5rem;
+   margin: 10px 0px 10px 0px;
+   display: flex;
+   /* flex-direction: row; */
+   justify-self: flex-start;
+   text-align: left;
+   justify-content: center;
+
+   /* position: relative; */
+}
+
+
+.reveal p.ref-head {
+   font-style: italic;
+   font-weight: bold;
+   font-size: 1.2rem;
+   line-height: 1rem;
+   text-align: center;
+}
+
+.reveal ol, ul, li{
+   font-size: 1.5rem;
+   line-height: 2.5rem;
+   text-align: left;
+}
+
+.reveal ul{
+   display: block;
+}
+
+.reveal ol{
+   display: block;
+}
+
+
+.reveal section strong{
+   display: contents;
+}
+
+.reveal span.references {
+   font-weight: normal;
+}
+
+.reveal div.wrapper {
+   display: flex;
+}
+
+/* .reveal p img[src*="#thumbnail"] { */
+   /* display: inline-block;
+   vertical-align: top; */
+   /* align-items: center; */
+   /* align-self: center; */
+   /* text-align: center; */
+   /* align-content: center; */
+   /* align-content: center; */
+
+/* } */
+
+.reveal section img{
+
+   justify-self: center;
+   margin: 10px 0px 10px 0px;
+   border:none;
+   box-shadow: none;
+
+}
+
+.reveal div.left{
+   width: 12%;
+   align-self: center;
+}
+
+.reveal div.right{
+   width: 88%;
+}
+
+.reveal div.credits {
+   margin: 150px 0px 0px 0px;
+   /* position: relative; */
+ }
+
+.reveal h4.prepared{
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+}
+
+.reveal p.name{
+   margin: 0px;
+   padding: 0px;
+   text-align: left;
+   justify-content: left;
+}
+
+
+.reveal div.circle{
+
+   width:100px;
+   height:100px;
+   border-radius:50px;
+   background:	#FF4500;
+   /* width and height can be anything, as long as they're equal */
+
+}
+
+.reveal {
+    /* font-size: 12px; */
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    color: black;
+    background: url("../images/footer2.svg") no-repeat;
+    background-size: auto;
+    background-position: left 0px bottom -52.1rem;
+}
+
+
+.slide-background.chapter-rev {
+   color: white;
+   background: url("../images/footer2.svg") no-repeat;
+   background-size: auto;
+   background-position: left 0px bottom -52.1rem;
+   background-color: black;
+}
+
+
+.reveal .slide-background .question {
+   color: white;
+   background: url("../images/question.PNG") no-repeat center,url("../images/footer2.svg") no-repeat bottom left;
+   background-size: cover, 99.5% 5%;
+   background-color:#719560;
+
+   /* HEX #719560 - zielony */
+   /* HEX #7a896c - zielony */
+   /* HEX #657537 - zielony */
+   /* HEX #8d9677 - zielony */
+}
+
+.reveal .slide-background .chapter {
+   /* column-rule: white;; */
+   background: url("../images/footer2.svg") no-repeat;
+   background-size: auto;
+   background-position: left 0px bottom -52.1rem;
+   background-color: black;
+}
+
+.slide-background.corpo-chapter {
+   background: url("../images/footer2.svg") no-repeat;
+   background-size: auto;
+   background-position: left 0px bottom -52.1rem;
+   background-color: #4c7b86;
+}
+
+
+.reveal .squere {
+   /* color: white; */
+   background-color: hsla(60,100%,50%,0.6);
+   width: 90%;
+   height: 500px;
+   padding: 10px;
+   margin: 10px;
+   left: 5%;
+   top:5%;
+}
+
+.reveal .slide-background .what{
+   background: url("../gifs/spiderman.gif") center;
+   background-size: cover;
+}
+
+.what-happened{
+   font-weight: normal;
+   margin: 200px;
+   color: black;
+   
+}
+
+div.what-squere{
+
+   background-color: rgba(0, 0, 0, 0.8);
+   color: white;
+   left: 0%;
+   top: 0%;
+   margin: 50px;
+   padding: 50px;
+   /* width: 1000px; */
+   /* height: 400px; */
+   box-sizing: content-box;
+}
+
+/* csaransh  -- css overides*/
+
+.reveal .slide-number {
+   font-size: 0.35em;
+   position: fixed;
+   left: 45%;
+   width: 10%;
+   text-align: center;
+}
+
+.fork-reveal {
+   display: none;
+}
+
+.reveal .superscript {
+   top: -0.5em;
+   position: relative;
+   font-style: italic;
+}
+
+.reveal .footer {
+   position: fixed;
+   bottom: 2.0em;
+   font-size: 60%;
+   left: 0.0px;
+   text-align: center;
+   width: 100%;
+}
+.reveal .dark_box {
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0, 0.5), 0 5px 25px rgba(0, 0, 0, 0.2);
+   background-color: rgba(0, 0, 0, 0.8);
+   color: #fff;
+   padding: 7px;
+   pointer-events: none;
+}
+
+.dark_box_text {
+   color: #fff !important;
+   pointer-events: none;
+}
+
+.reveal .collision_cascade1 {
+   position: absolute;
+   width: 40%;
+   right: 0;
+   top: -200px;
+   text-align: right;
+}
+
+.reveal .clusters_in_cascade {
+   position: absolute;
+   width: 30%;
+   right: 19%;
+   text-align: center;
+}
+
+.reveal .clustersiv {
+   position: absolute;
+   top: 300px;
+   left: 0.0px;
+   width: 100%;
+}
+
+.reveal .flowimgs {
+   border: 0;
+   background: 0;
+   box-shadow: none;
+   align-self: center;
+   position: relative;
+}
+
+.reveal .flowdivs {
+   position: absolute;
+}
+
+.reveal .imgnoborder {
+   border: 0;
+   background: 0;
+   box-shadow: none;
+   align-self: center;
+   margin: 0px;
+}
+
+/* ----- Reveal Layout -------- */
+
+/**
+ * Layout helpers.
+ */
+
+
+ .reveal .stretch,
+ .reveal .r-stretch {
+    max-width: none;
+    max-height: none;
+ }
+ 
+ .reveal pre.stretch code,
+ .reveal pre.r-stretch code {
+    height: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+ }
+ 
+ .reveal .r-fit-text {
+    display: inline-block; 
+    white-space: nowrap;
+ }
+
+ .reveal .r-stack {
+    display: grid;
+ }
+ 
+ .reveal .r-stack > * {
+    grid-area: 1/1;
+    margin: auto;
+ }
+ 
+ .reveal .r-vstack,
+ .reveal .r-hstack {
+    display: flex;
+
+ }
+ 
+ .reveal .r-vstack {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .reveal .r-hstack {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .reveal .items-stretch { align-items: stretch; }
+ .reveal .items-start { align-items: flex-start; }
+ .reveal .items-center { align-items: center; }
+ .reveal .items-end { align-items: flex-end; }
+ 
+ .reveal .justify-between { justify-content: space-between; }
+ .reveal .justify-around { justify-content: space-around; }
+ .reveal .justify-start { justify-content: flex-start; }
+ .reveal .justify-center { justify-content: center; }
+ .reveal .justify-end { justify-content: flex-end; }
+
+/* blockquote in md file */
+.reveal blockquote.md-file,
+.reveal blockquote {
+   display: block;
+   position: relative;
+   width: 70%;
+   margin: 20px auto;
+   padding: 5px;
+   font-style: italic;
+   font-size: 0.65em;
+   text-align: left;
+   justify-content: center;
+   background: rgba(255, 255, 255, 0.05);
+   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
+ 
+ .reveal blockquote p:first-child,
+ .reveal blockquote p:last-child {
+   display: inline-block;
+   font-size: 0.65em;}
+
+/* Tags overrides */
+.reveal p strong{
+   display: contents;
+}
+
+.reveal p strong em {
+   display: contents; 
+}
+
+.reveal p code {
+   display: contents; 
+}
+
+
+.reveal .left-orient, 
+.reveal em.left-orient {
+   text-align: left; 
+   justify-content: left;
+}
+
+.reveal .padded {
+   display: inline-block;
+   padding: 1rem; }
+   .reveal .padded img {
+      border: none;
+      margin: 0; }
+   .reveal .padded p {
+      border: none;
+      margin: 0;
+      font-size: 0.65em;
+   }
+   .reveal .padded div {
+      border: none;
+      margin: 0; 
+      font-size: 0.65em;
+   }
+.reveal thead{
+ font-size: 0.65em;  
+}
+.reveal tbody{
+   font-size: 0.65em;  
+}
