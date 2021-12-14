@@ -163,19 +163,18 @@
 .reveal {
     /* font-size: 12px; */
     font-weight: normal;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
     color: black;
     background: url("../images/footer2.svg") no-repeat;
-    background-size: auto;
-    background-position: left 0px bottom -52.1rem;
+    background-size: 100%;
+    background-position: bottom left;
 }
-
 
 .slide-background.chapter-rev {
    color: white;
    background: url("../images/footer2.svg") no-repeat;
-   background-size: auto;
-   background-position: left 0px bottom -52.1rem;
+   background-size: 100%;
+   background-position: bottom left;
    background-color: black;
 }
 
